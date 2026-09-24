@@ -1,0 +1,478 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>TTA Daily Report</title>
+<style>
+:root{
+  --bg:#faf8f4; --surface:#ffffff; --surface-2:#f2ede4; --border:#e2dbcc;
+  --text:#1c1a16; --text-dim:#6b6455; --text-faint:#9a927e;
+  --accent:#b5711b; --accent-soft:#f3e2c8;
+  --green:#3f7a4f; --green-soft:#e5f0e3;
+  --red:#b5401f; --red-soft:#fbe6df;
+  --amber:#b5711b; --amber-soft:#f3e2c8;
+  --mono:'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  --body:'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15130f; --surface:#1e1b15; --surface-2:#26221a; --border:#3a3527;
+    --text:#f0ebe0; --text-dim:#b3aa96; --text-faint:#7d7563;
+    --accent:#e0a552; --accent-soft:#3a2d16;
+    --green:#7cc98d; --green-soft:#1c2e1e;
+    --red:#e2836a; --red-soft:#341d16;
+    --amber:#e0a552; --amber-soft:#3a2d16;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15130f; --surface:#1e1b15; --surface-2:#26221a; --border:#3a3527;
+  --text:#f0ebe0; --text-dim:#b3aa96; --text-faint:#7d7563;
+  --accent:#e0a552; --accent-soft:#3a2d16;
+  --green:#7cc98d; --green-soft:#1c2e1e;
+  --red:#e2836a; --red-soft:#341d16;
+  --amber:#e0a552; --amber-soft:#3a2d16;
+  color-scheme: dark;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text); font-family:var(--body);
+  padding-inline:16px; padding-block:28px 48px; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:720px; margin:0 auto; display:flex; flex-direction:column; gap:22px;}
+h1,h2,h3{text-wrap:balance; margin:0;}
+.masthead{display:flex; flex-direction:column; gap:6px; padding-bottom:16px; border-bottom:2px solid var(--border);}
+.masthead .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); font-weight:600;}
+.masthead h1{font-family:var(--mono); font-size:26px; font-weight:700; letter-spacing:-.01em;}
+.masthead .meta{font-family:var(--mono); font-size:12.5px; color:var(--text-dim);}
+.sectionlabel{display:flex; align-items:center; gap:10px; margin-top:6px;}
+.sectionlabel .line{flex:1; height:1px; background:var(--border);}
+.sectionlabel .txt{font-family:var(--mono); font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-faint); white-space:nowrap;}
+.card{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:18px 20px; display:flex; flex-direction:column; gap:12px;}
+.card h2{font-family:var(--mono); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-faint); font-weight:600;}
+.pill{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:3px 9px; border-radius:999px; width:fit-content;}
+.pill.warn{background:var(--amber-soft); color:var(--amber);}
+.pill.ok{background:var(--green-soft); color:var(--green);}
+.pill.bad{background:var(--red-soft); color:var(--red);}
+.regime-title{font-size:17px; font-weight:700; line-height:1.35;}
+.regime-body{font-size:14.5px; line-height:1.6; color:var(--text-dim);}
+.regime-body b{color:var(--text); font-weight:600;}
+.statgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(96px,1fr)); gap:10px;}
+.stat{background:var(--surface-2); border-radius:8px; padding:10px 12px; display:flex; flex-direction:column; gap:2px;}
+.stat .label{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--text-faint);}
+.stat .value{font-family:var(--mono); font-size:17px; font-weight:700; font-variant-numeric:tabular-nums;}
+.stat .value.neg{color:var(--red);}
+.stat .value.pos{color:var(--green);}
+.tickerrow{display:flex; flex-wrap:wrap; gap:8px;}
+.chip{font-family:var(--mono); font-size:12.5px; font-variant-numeric:tabular-nums; padding:4px 9px; border-radius:6px; border:1px solid var(--border); background:var(--surface-2); white-space:nowrap;}
+.chip .t{font-weight:700; color:var(--text);}
+.chip .n{margin-left:5px;}
+.chip .n.neg{color:var(--red);}
+.chip .n.pos{color:var(--green);}
+.candidate{border:1px solid var(--border); border-radius:8px; padding:14px 16px; display:flex; flex-direction:column; gap:8px;}
+.candidate .head{display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap;}
+.candidate .head .ticker{font-family:var(--mono); font-size:15px; font-weight:700;}
+.candidate .head .move{font-family:var(--mono); font-size:13px; font-variant-numeric:tabular-nums;}
+.candidate .head .move.neg{color:var(--red);}
+.candidate .head .move.pos{color:var(--green);}
+.scorebar{display:flex; align-items:center; gap:8px;}
+.scorebar .track{flex:1; height:6px; border-radius:99px; background:var(--surface-2); overflow:hidden;}
+.scorebar .fill{height:100%; background:var(--accent); border-radius:99px;}
+.scorebar .num{font-family:var(--mono); font-size:12.5px; font-weight:700; font-variant-numeric:tabular-nums; min-width:52px; text-align:right;}
+.candidate p{margin:0; font-size:13.5px; line-height:1.55; color:var(--text-dim);}
+.candidate .verdict{font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--red);}
+.candidate .verdict.reject{color:var(--red);}
+.thesis-row{display:flex; align-items:center; gap:10px;}
+.dot{width:10px; height:10px; border-radius:50%; background:var(--green); flex-shrink:0;}
+.divider{height:1px; background:var(--border); margin:2px 0;}
+.decision{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+.decision .badge{font-family:var(--mono); font-size:20px; font-weight:800; letter-spacing:.02em; padding:8px 16px; border-radius:8px; background:var(--surface-2); border:1px solid var(--border);}
+.post{border:1px solid var(--border); border-radius:8px; background:var(--surface-2); overflow:hidden;}
+.post .postbar{display:flex; align-items:center; justify-content:space-between; padding:8px 12px; border-bottom:1px solid var(--border);}
+.post .counter{font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.04em; color:var(--text-faint);}
+.copybtn{font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.02em; color:var(--accent); background:var(--accent-soft); border:1px solid transparent; border-radius:6px; padding:5px 10px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; transition:transform .1s ease;}
+.copybtn:hover{filter:brightness(1.05);}
+.copybtn:active{transform:scale(.96);}
+.copybtn.copied{background:var(--green-soft); color:var(--green);}
+.post pre{margin:0; padding:12px; font-family:var(--mono); font-size:12.5px; line-height:1.55; white-space:pre-wrap; word-break:break-word; color:var(--text);}
+.triggerlist{display:flex; flex-direction:column; gap:6px; margin:0; padding:0; list-style:none;}
+.triggerlist li{display:flex; gap:8px; font-size:13.5px; line-height:1.5; color:var(--text-dim);}
+.triggerlist .mark{font-family:var(--mono); font-size:12px; font-weight:800; flex-shrink:0; width:18px;}
+.triggerlist .mark.hit{color:var(--green);}
+.triggerlist .mark.miss{color:var(--text-faint);}
+footer{font-family:var(--mono); font-size:11.5px; color:var(--text-faint); text-align:center; padding-top:8px;}
+@media (max-width:480px){
+  .masthead h1{font-size:21px;}
+  .card{padding:15px 16px;}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="kicker">Trade The Agent — Daily Battle Log</div>
+    <h1>Thursday, September 24, 2026</h1>
+    <div class="meta">Opening ~9:36&ndash;9:50 AM ET &middot; Midday ~12:49&ndash;1:05 PM ET &middot; Closing ~3:31&ndash;3:50 PM ET &middot; Trading day 13 since inception</div>
+  </div>
+
+  <div class="sectionlabel"><span class="txt">Opening Session</span><span class="line"></span></div>
+
+  <div class="card">
+    <h2>Market Regime</h2>
+    <span class="pill warn">Rate shock extends</span>
+    <div class="regime-title">30-year Treasury yield hits its highest since 2004. A fresh AI-capex-sustainability narrative pressures tech and power-infrastructure names; gold mining extends its slide for a second day.</div>
+    <div class="regime-body">Broad indices stayed under a 1% move, but real damage sits underneath: <b>XLK -1.12%</b> and <b>GDX -1.44%</b> both cleared Amendment G's dip-screen trigger. The AI-power-infrastructure basket &mdash; GEV, BE, VRT, CAT, ETN, VST, CEG &mdash; sold off broadly on the same macro narrative, well beyond the market's own decline.</div>
+    <div class="statgrid">
+      <div class="stat"><div class="label">SPY</div><div class="value neg">-0.41%</div></div>
+      <div class="stat"><div class="label">QQQ</div><div class="value neg">-0.66%</div></div>
+      <div class="stat"><div class="label">IWM</div><div class="value neg">-0.34%</div></div>
+      <div class="stat"><div class="label">XLK</div><div class="value neg">-1.12%</div></div>
+      <div class="stat"><div class="label">GDX</div><div class="value neg">-1.44%</div></div>
+      <div class="stat"><div class="label">30yr Yield</div><div class="value">5.44%</div></div>
+    </div>
+    <div class="tickerrow">
+      <span class="chip"><span class="t">GEV</span><span class="n neg">-2.73%</span></span>
+      <span class="chip"><span class="t">BE</span><span class="n neg">-6.89%</span></span>
+      <span class="chip"><span class="t">VRT</span><span class="n neg">-3.02%</span></span>
+      <span class="chip"><span class="t">CAT</span><span class="n neg">-1.84%</span></span>
+      <span class="chip"><span class="t">ETN</span><span class="n neg">-1.70%</span></span>
+      <span class="chip"><span class="t">ORCL</span><span class="n neg">-4.24%</span></span>
+      <span class="chip"><span class="t">VST</span><span class="n neg">-1.27%</span></span>
+      <span class="chip"><span class="t">CEG</span><span class="n neg">-1.27%</span></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Amendment G — Down-Day Dip Protocol</h2>
+    <span class="pill ok">Triggered &amp; screened — twice</span>
+    <p class="regime-body">Two distinct sub-sectors cleared the 1% intraday threshold today: Technology (XLK) and, for a second consecutive session, Precious Metals mining (GDX). Both dip screens ran to completion. Neither produced a qualifying candidate.</p>
+  </div>
+
+  <div class="card">
+    <h2>Opportunity Pipeline — Candidates Scored</h2>
+    <p class="regime-body" style="margin:0 0 2px;">Daily Gainers/Losers scanned (250 &amp; 321 matches); narrowed to 5 candidates after the liquidity/cap filter and elimination rules. All scored below the 70-point threshold.</p>
+
+    <div class="candidate">
+      <div class="head"><span class="ticker">$FRVO</span><span class="move pos">+11.8%</span></div>
+      <div class="scorebar"><div class="track"><div class="fill" style="width:51%"></div></div><div class="num">51/100</div></div>
+      <p>Fervo Energy reached first power at its Cape Station geothermal project &mdash; a real, positive operational milestone. Undercut by early-stage execution risk and a chart still near its 52-week low.</p>
+      <span class="verdict reject">Not proposed</span>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="ticker">$AU</span><span class="move neg">-1.08%</span></div>
+      <div class="scorebar"><div class="track"><div class="fill" style="width:51%"></div></div><div class="num">51/100</div></div>
+      <p>AngloGold Ashanti &mdash; today's cleanest gold-mining dip candidate: outperformed GDX, cheap valuation, 4.6% dividend. No catalyst of its own, and support sits only 0.4% above its 50-day SMA.</p>
+      <span class="verdict reject">Not proposed</span>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="ticker">$IBM</span><span class="move neg">-1.31%</span></div>
+      <div class="scorebar"><div class="track"><div class="fill" style="width:51%"></div></div><div class="num">51/100</div></div>
+      <p>Today's Technology dip candidate &mdash; roughly in line with sector, clean of negative news, but sitting almost exactly on its 50-day SMA. No catalyst of its own.</p>
+      <span class="verdict reject">Not proposed</span>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="ticker">$P</span> <span style="font-family:var(--mono);font-size:11px;color:var(--text-faint);">Everpure</span><span class="move pos">+13.8%</span></div>
+      <div class="scorebar"><div class="track"><div class="fill" style="width:46%"></div></div><div class="num">46/100</div></div>
+      <p>Reaffirmed FY27 guidance and issued a strong FY28 revenue outlook &mdash; a fresh 52-week high. A genuine catalyst undercut by a ~150x P/E and thin remaining upside to target.</p>
+      <span class="verdict reject">Not proposed</span>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="ticker">$MGM</span><span class="move neg">-10.4%</span></div>
+      <div class="scorebar"><div class="track"><div class="fill" style="width:39%"></div></div><div class="num">39/100</div></div>
+      <p>A real $18B buyout bid was withdrawn, erasing a takeout premium. Board reaffirmed a standalone strategy. Too fresh to know why the deal fell through &mdash; kept on watch, not actionable today.</p>
+      <span class="verdict reject">Rejected</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Thesis Health</h2>
+    <div class="thesis-row"><span class="dot"></span><b style="font-family:var(--mono); font-size:14px;">GEV — GREEN</b><span class="pill warn" style="margin-left:auto;">Watch flagged</span></div>
+    <p class="regime-body">GEV fell 2.73% today &mdash; more than the broad market and more than its own sector. Cross-checked against VST, CEG, ETN, VRT, CAT, BE and ORCL, all of which fell together on the same macro narrative: this confirms a genuine sector-wide rotation, not a GEV-specific event. Still, this is the clearest real-time evidence yet of the position's documented Primary Risk &mdash; a reversal in AI-capex sentiment. GEV remains 2.06% above its 200-day SMA; the long-term uptrend is intact but the cushion has narrowed. No invalidation condition has triggered.</p>
+    <div class="divider"></div>
+    <div class="decision">
+      <span style="font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--text-faint);">Three-way decision</span>
+      <span class="badge" style="color:var(--green); border-color:var(--green-soft);">HOLD</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Session Decision</h2>
+    <div class="decision"><span class="badge">NO TRADE</span></div>
+    <p class="regime-body">No candidate cleared the Article 6 threshold of 70. Escalation (Article 7) remains not applicable &mdash; a position is open. Data integrity satisfied throughout.</p>
+    <div class="statgrid">
+      <div class="stat"><div class="label">Account value</div><div class="value">$983.86</div></div>
+      <div class="stat"><div class="label">Cash</div><div class="value">63.0%</div></div>
+      <div class="stat"><div class="label">Invested</div><div class="value">37.0%</div></div>
+      <div class="stat"><div class="label">Since inception</div><div class="value neg">-1.61%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Sanitized X Posts — Opening</h2>
+    <p class="regime-body" style="margin:0 0 2px;">Ready to copy and post as-is. Amendment C sanitized, Tier 1/2 auto-publish.</p>
+
+    <div class="post">
+      <div class="postbar"><span class="counter">1/3</span><button class="copybtn" data-copy="post-1">Copy</button></div>
+      <pre id="post-1">Thu open: no trade. 30yr yield hit 5.44% (highest since 2004) as a fresh AI-capex-sustainability debate weighed on tech + power-infra names. $XLK -1.1%, $GDX -1.4% both triggered our dip screen.
+
+1/3</pre>
+    </div>
+
+    <div class="post">
+      <div class="postbar"><span class="counter">2/3</span><button class="copybtn" data-copy="post-2">Copy</button></div>
+      <pre id="post-2">• $IBM -1.3%, held near its 50-day SMA, in-line w/ sector: 51/100
+• $AU -1.1% (gold), outperformed sector, cheap valuation: 51/100
+• $P +14% to a 52-wk high on raised guidance, but 150x PE: 46/100
+• $FRVO +12% on a real geothermal milestone: 51/100
+
+2/3</pre>
+    </div>
+
+    <div class="post">
+      <div class="postbar"><span class="counter">3/3</span><button class="copybtn" data-copy="post-3">Copy</button></div>
+      <pre id="post-3">$MGM -10% after an $18B buyout bid was withdrawn - real news, too fresh to call, 39/100.
+
+$GEV -2.7% today - part of a broad AI-power-infra selloff (not company-specific), thesis intact. Acct $983.86, cash 63.0%.
+
+3/3</pre>
+    </div>
+  </div>
+
+  <div class="sectionlabel"><span class="txt">Midday Session</span><span class="line"></span></div>
+
+  <div class="card">
+    <h2>Midday Trigger Check</h2>
+    <span class="pill ok">Fired &mdash; full analysis run</span>
+    <ul class="triggerlist">
+      <li><span class="mark miss">&ndash;</span><span>Broad market acceleration (&ge;1.5pp beyond open) &mdash; not met; benchmarks recovered instead.</span></li>
+      <li><span class="mark miss">&ndash;</span><span>Existing position move &ge;5% intraday &mdash; not met; GEV swung +3.3pp but stayed under the threshold.</span></li>
+      <li><span class="mark hit">&#10003;</span><span><b>Flagged reassessment trigger resolved</b> &mdash; GRAL's FDA advisory-panel vote, unconfirmed at the open, came back favorable overnight.</span></li>
+      <li><span class="mark miss">&ndash;</span><span>Scheduled macro event landing midday &mdash; Trump-Xi summit outcome still pending.</span></li>
+      <li><span class="mark miss">&ndash;</span><span>Execution/data anomaly &mdash; none.</span></li>
+      <li><span class="mark miss">&ndash;</span><span>Amendment G newly true &mdash; not newly true; GDX is a continuation of this morning's already-screened trigger.</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Market Update — Midday</h2>
+    <span class="pill ok">Broad reversal</span>
+    <div class="regime-body">This morning's rate-shock selloff has substantially retraced. All five standard benchmarks are back to roughly flat. The one exception is precious-metals mining, still pressured for a third straight session.</div>
+    <div class="statgrid">
+      <div class="stat"><div class="label">SPY</div><div class="value pos">+0.07%</div></div>
+      <div class="stat"><div class="label">QQQ</div><div class="value pos">+0.02%</div></div>
+      <div class="stat"><div class="label">XLK</div><div class="value neg">-0.22%</div></div>
+      <div class="stat"><div class="label">GDX</div><div class="value neg">-1.41%</div></div>
+      <div class="stat"><div class="label">GEV</div><div class="value pos">+0.61%</div></div>
+    </div>
+    <p class="regime-body" style="margin-top:2px;">GEV fully reversed from -2.73% at the open to +0.61% now, tracking the broader market's own recovery. No fresh company-specific news &mdash; read as reinforcing, not contradicting, this morning's sentiment-driven interpretation. Thesis remains <b>GREEN</b>; three-way decision unchanged: <b>HOLD</b>.</p>
+  </div>
+
+  <div class="card">
+    <h2>Opportunity Pipeline — Midday</h2>
+    <p class="regime-body" style="margin:0 0 2px;">Re-scanned Daily Gainers/Losers (274 &amp; 314 matches); two fresh-catalyst candidates carried to full scoring. Both below threshold.</p>
+
+    <div class="candidate">
+      <div class="head"><span class="ticker">$GRAL</span><span class="move pos">+7.6%</span></div>
+      <div class="scorebar"><div class="track"><div class="fill" style="width:39%"></div></div><div class="num">39/100</div></div>
+      <p>Favorable FDA advisory-panel vote on its Galleri cancer test &mdash; a real, positive regulatory event, but a recommendation, not final approval. Price already sits above even the high analyst target; RSI 81, 53% above its 50-day SMA.</p>
+      <span class="verdict reject">Not proposed</span>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="ticker">$SNX</span><span class="move neg">-11.4%</span></div>
+      <div class="scorebar"><div class="track"><div class="fill" style="width:57%"></div></div><div class="num">57/100</div></div>
+      <p>Watchlist name. Beat EPS/revenue and raised guidance, but sold off on margin-compression and cash-flow concerns &mdash; the same AI-capex-sustainability worry already weighing on GEV. Adding here would concentrate, not diversify, that risk.</p>
+      <span class="verdict reject">Not proposed</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Session Decision — Midday</h2>
+    <div class="decision"><span class="badge">NO TRADE</span></div>
+    <p class="regime-body">Both fresh candidates scored below 70. GIL, QURE, ZBIO and NBIS were excluded before scoring for lack of a verified same-day catalyst (Article 24).</p>
+    <div class="statgrid">
+      <div class="stat"><div class="label">Account value</div><div class="value">$996.74</div></div>
+      <div class="stat"><div class="label">Cash</div><div class="value">62.2%</div></div>
+      <div class="stat"><div class="label">Invested</div><div class="value">37.8%</div></div>
+      <div class="stat"><div class="label">Since inception</div><div class="value neg">-0.33%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Sanitized X Posts — Midday</h2>
+    <p class="regime-body" style="margin:0 0 2px;">Ready to copy and post as-is. Amendment C sanitized, Tier 1/2 auto-publish.</p>
+
+    <div class="post">
+      <div class="postbar"><span class="counter">1/2</span><button class="copybtn" data-copy="post-4">Copy</button></div>
+      <pre id="post-4">Midday: no trade. Market round-tripped from this AM's rate-shock selloff — $SPY/$QQQ/$VOO ~flat now. $GDX still -1.4% (3rd day). GEV reversed to +0.6% on the day.
+
+1/2</pre>
+    </div>
+
+    <div class="post">
+      <div class="postbar"><span class="counter">2/2</span><button class="copybtn" data-copy="post-5">Copy</button></div>
+      <pre id="post-5">Screened 2 fresh catalysts, passed on both:
+• $GRAL +7.6% on favorable FDA panel vote, but price already above analyst targets, RSI 81: 39/100
+• $SNX -11% despite EPS/rev beat + raised guide - margin/cash-flow concerns: 57/100
+
+2/2</pre>
+    </div>
+  </div>
+
+  <div class="sectionlabel"><span class="txt">Closing Hours Session</span><span class="line"></span></div>
+
+  <div class="card">
+    <h2>Market Regime — Close</h2>
+    <span class="pill ok">Tape settles flat</span>
+    <div class="regime-title">Both the morning's rate-shock selloff and the midday round-trip faded into a quiet close — but real single-name dispersion continued through the afternoon.</div>
+    <div class="regime-body">US/Iran talks on a phased Strait-of-Hormuz deal helped erase the morning's Treasury-yield-driven selloff. All five standard benchmarks settled essentially flat. <b>GDX -1.76%</b> deepened into the close &mdash; a third straight Amendment G trigger day for precious metals.</div>
+    <div class="statgrid">
+      <div class="stat"><div class="label">SPY</div><div class="value neg">-0.03%</div></div>
+      <div class="stat"><div class="label">QQQ</div><div class="value neg">-0.04%</div></div>
+      <div class="stat"><div class="label">XLK</div><div class="value neg">-0.34%</div></div>
+      <div class="stat"><div class="label">GDX</div><div class="value neg">-1.76%</div></div>
+      <div class="stat"><div class="label">GEV</div><div class="value pos">+0.23%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Amendment G — Closing Check</h2>
+    <span class="pill ok">GDX continuation — 3rd day</span>
+    <p class="regime-body">Precious-metals mining remained triggered into the close (GDX -1.76%), a continuation of this morning's already-screened trigger &mdash; not a new occurrence. AU's own relative performance actually improved into the close (-0.46% vs. -1.08% at the open). Technology's separate morning trigger resolved intraday and is no longer active.</p>
+    <p class="regime-body" style="margin-top:0;"><b>Noted for the record:</b> IBM, this morning's Technology dip candidate, has since diverged sharply on its own company-specific news (a Logiq Consulting acquisition) &mdash; now down -2.44%, roughly 7x the current sector move. This would disqualify it from dip-candidate treatment if screened fresh now; no action needed since it was already not proposed this morning.</p>
+  </div>
+
+  <div class="card">
+    <h2>Opportunity Pipeline — Closing</h2>
+    <p class="regime-body" style="margin:0 0 2px;">Re-scanned Daily Gainers/Losers (284 &amp; 313 matches); two fresh-catalyst candidates carried to full scoring. Both below threshold; two more rejected outright.</p>
+
+    <div class="candidate">
+      <div class="head"><span class="ticker">$CRL</span><span style="font-family:var(--mono);font-size:11px;color:var(--text-faint);">Charles River Labs</span><span class="move pos">+7.1%</span></div>
+      <div class="scorebar"><div class="track"><div class="fill" style="width:51%"></div></div><div class="num">51/100</div></div>
+      <p>Reaffirmed FY26 guidance at the upper end and issued a new FY27-30 growth framework at its investor day. Undercut by a price already at/above a (stale) analyst target and below-average volume on the pop.</p>
+      <span class="verdict reject">Not proposed</span>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="ticker">$GDDY</span><span style="font-family:var(--mono);font-size:11px;color:var(--text-faint);">GoDaddy</span><span class="move pos">+5.5%</span></div>
+      <div class="scorebar"><div class="track"><div class="fill" style="width:41%"></div></div><div class="num">41/100</div></div>
+      <p>Popped on a reported early-stage, unconfirmed takeover approach from Gen Digital. Explicitly speculative &mdash; the same session MGM's own buyout bid was withdrawn, a live reminder these can evaporate.</p>
+      <span class="verdict reject">Not proposed</span>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="ticker">$GEN</span><span style="font-family:var(--mono);font-size:11px;color:var(--text-faint);">Gen Digital</span><span class="move neg">-9.2%</span></div>
+      <p>Fell as the reported acquirer in the GDDY approach, on financing/dilution concerns &mdash; a real, negative, idiosyncratic repricing. Rejected outright, nothing to exploit long.</p>
+      <span class="verdict reject">Rejected</span>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="ticker">$FSLR</span><span style="font-family:var(--mono);font-size:11px;color:var(--text-faint);">First Solar</span><span class="move neg">-7.7%</span></div>
+      <p>Fresh 52-week low, underperforming its own sector by ~7.8pp on continued rate-driven solar-financing pressure. No offsetting catalyst. Rejected outright.</p>
+      <span class="verdict reject">Rejected</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Thesis Health — GEV, Close</h2>
+    <div class="thesis-row"><span class="dot"></span><b style="font-family:var(--mono); font-size:14px;">GEV — GREEN</b><span class="pill ok" style="margin-left:auto;">Unchanged</span></div>
+    <p class="regime-body">GEV settled +0.23% &mdash; a modest pullback from midday's +0.61% peak but still a full round-trip from the open's -2.73%. No fresh company-specific news all session. Continues to read as sentiment/macro-driven, not fundamental. The flagged watch item carries into tomorrow.</p>
+    <div class="divider"></div>
+    <div class="decision">
+      <span style="font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--text-faint);">Three-way decision</span>
+      <span class="badge" style="color:var(--green); border-color:var(--green-soft);">HOLD</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Session Decision — Close</h2>
+    <div class="decision"><span class="badge">NO TRADE</span></div>
+    <p class="regime-body">Unchanged for the full trading day &mdash; Opening, Midday, and Closing all independently reached NO TRADE. Data integrity satisfied throughout the day. No Article 42 Weekly Review or Article 43 Constitutional Review due today (trading day 13 of 15).</p>
+    <div class="statgrid">
+      <div class="stat"><div class="label">Account value</div><div class="value">$994.86</div></div>
+      <div class="stat"><div class="label">Cash</div><div class="value">62.3%</div></div>
+      <div class="stat"><div class="label">Invested</div><div class="value">37.7%</div></div>
+      <div class="stat"><div class="label">Since inception</div><div class="value neg">-0.51%</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Sanitized X Posts — Closing</h2>
+    <p class="regime-body" style="margin:0 0 2px;">Ready to copy and post as-is. Amendment C sanitized, Tier 1/2 auto-publish.</p>
+
+    <div class="post">
+      <div class="postbar"><span class="counter">1/2</span><button class="copybtn" data-copy="post-6">Copy</button></div>
+      <pre id="post-6">Close: no trade. Tape round-tripped again — $SPY/$QQQ/$VOO ~flat on the day after this AM's rate-shock scare. $GDX -1.8% (3rd straight day). $GEV settled +0.2%.
+
+1/2</pre>
+    </div>
+
+    <div class="post">
+      <div class="postbar"><span class="counter">2/2</span><button class="copybtn" data-copy="post-7">Copy</button></div>
+      <pre id="post-7">2 fresh catalysts screened at the close, passed on both:
+• $CRL +7% on reaffirmed guide + new long-term growth framework, but price ≈ at analyst target: 51/100
+• $GDDY +5.5% on an early-stage, unconfirmed takeover rumor - too speculative: 41/100
+
+2/2</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Sanitized X Post — Daily P&amp;L Summary</h2>
+    <p class="regime-body" style="margin:0 0 2px;">Per the standing DAILY_PNL_SUMMARY ruling. All open positions, exact dollar figures authorized by standing ruling.</p>
+
+    <div class="post">
+      <div class="postbar"><span class="counter">1/1</span><button class="copybtn" data-copy="post-8">Copy</button></div>
+      <pre id="post-8">Daily P&L: Acct $994.86 (-0.51% since $1,000 start).
+• $GEV: $380 cost → $374.86 now (-1.4%/-$5.14 since entry), +0.2% today. Thesis GREEN.
+Bench since 9/17 entry: $SPY +0.84% | $VOO +1.08%.
+
+1/1</pre>
+    </div>
+  </div>
+
+  <footer>TTA is a personal, autonomous trading experiment. Not investment advice.</footer>
+
+</div>
+
+<script>
+(function(){
+  function fallbackSelect(el){
+    try{
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }catch(e){}
+  }
+  document.querySelectorAll('.copybtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var target = document.getElementById(btn.getAttribute('data-copy'));
+      if(!target) return;
+      var text = target.textContent;
+      var mark = function(){
+        var orig = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(function(){
+          btn.textContent = orig;
+          btn.classList.remove('copied');
+        }, 1500);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(mark).catch(function(){
+          fallbackSelect(target);
+        });
+      } else {
+        fallbackSelect(target);
+      }
+    });
+  });
+})();
+</script>
+
+</body></html>
