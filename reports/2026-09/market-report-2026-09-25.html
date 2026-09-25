@@ -1,0 +1,350 @@
+<title>TTA Market Log 9/25</title>
+<style>
+:root{
+  --bg:#faf8f4; --surface:#ffffff; --surface-2:#f2ede4; --border:#e4dccc;
+  --text:#242019; --text-dim:#645d50; --text-faint:#8a8272;
+  --accent:#b5651d; --accent-soft:#f0dcc4;
+  --green:#3f7d4f; --green-soft:#e3efe2;
+  --amber:#a8730f; --amber-soft:#f5e9d2;
+  --red:#a83a32; --red-soft:#f5e0dc;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  --body: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#171410; --surface:#1f1b15; --surface-2:#26211a; --border:#3a3226;
+    --text:#f0e9dc; --text-dim:#b4a998; --text-faint:#847a68;
+    --accent:#e0994a; --accent-soft:#3a2c18;
+    --green:#7cbf8a; --green-soft:#1f2e21;
+    --amber:#e0b25a; --amber-soft:#332a16;
+    --red:#e08277; --red-soft:#332019;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#171410; --surface:#1f1b15; --surface-2:#26211a; --border:#3a3226;
+  --text:#f0e9dc; --text-dim:#b4a998; --text-faint:#847a68;
+  --accent:#e0994a; --accent-soft:#3a2c18;
+  --green:#7cbf8a; --green-soft:#1f2e21;
+  --amber:#e0b25a; --amber-soft:#332a16;
+  --red:#e08277; --red-soft:#332019;
+  color-scheme: dark;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text); font-family:var(--body);
+  padding-inline:16px; padding-block:28px 48px; line-height:1.5;
+}
+.wrap{max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:22px;}
+.eyebrow{font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-faint);}
+h1{font-family:var(--mono); font-size:clamp(22px,5vw,30px); margin:2px 0 0; text-wrap:balance; letter-spacing:-0.01em;}
+.dateline{font-family:var(--mono); font-size:13px; color:var(--text-dim); margin-top:4px;}
+.session-divider{display:flex; align-items:center; gap:10px; margin-top:6px;}
+.session-divider .line{flex:1; height:1px; background:var(--border);}
+.session-divider .label{font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); white-space:nowrap;}
+.card{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 18px;}
+.regime{background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:16px 18px;}
+.regime h2{font-family:var(--mono); font-size:13px; letter-spacing:.05em; text-transform:uppercase; margin:0 0 8px; color:var(--text-dim);}
+.regime p{margin:0; font-size:15.5px;}
+.pill{display:inline-flex; align-items:center; gap:5px; font-family:var(--mono); font-size:12px; padding:3px 9px; border-radius:99px; font-weight:600;}
+.pill.green{background:var(--green-soft); color:var(--green);}
+.pill.amber{background:var(--amber-soft); color:var(--amber);}
+.pill.red{background:var(--red-soft); color:var(--red);}
+.pill.neutral{background:var(--surface-2); color:var(--text-dim); border:1px solid var(--border);}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px;}
+.tile{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:12px 14px;}
+.tile .label{font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint);}
+.tile .value{font-family:var(--mono); font-size:19px; margin-top:4px; font-variant-numeric:tabular-nums;}
+.tile .sub{font-size:12.5px; color:var(--text-dim); margin-top:2px;}
+.up{color:var(--green);} .down{color:var(--red);}
+section h2{font-family:var(--mono); font-size:14px; letter-spacing:.04em; text-transform:uppercase; color:var(--text-dim); margin:0 0 10px; padding-bottom:8px; border-bottom:1px solid var(--border);}
+section{display:flex; flex-direction:column; gap:10px;}
+.candidate{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 16px; display:flex; flex-direction:column; gap:6px;}
+.candidate .head{display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap;}
+.candidate .tkr{font-family:var(--mono); font-weight:700; font-size:15px;}
+.candidate .move{font-family:var(--mono); font-size:13px;}
+.candidate .score{font-family:var(--mono); font-size:13px; padding:2px 8px; border-radius:6px; background:var(--surface-2); border:1px solid var(--border);}
+.candidate p{margin:0; font-size:14.5px; color:var(--text-dim);}
+.candidate .verdict{font-size:13px; font-weight:600;}
+.rejects{font-size:13.5px; color:var(--text-dim); background:var(--surface-2); border-radius:10px; padding:12px 14px; border:1px solid var(--border);}
+.rejects b{color:var(--text);}
+.decision-box{background:var(--accent-soft); border:1px solid var(--accent); border-radius:10px; padding:16px 18px; display:flex; flex-direction:column; gap:6px;}
+.decision-box .tag{font-family:var(--mono); font-size:20px; font-weight:700; color:var(--accent); letter-spacing:.02em;}
+.decision-box p{margin:0; font-size:14.5px; color:var(--text);}
+.thesis-row{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+.thesis-row .tkr{font-family:var(--mono); font-weight:700;}
+footer{font-family:var(--mono); font-size:11px; color:var(--text-faint); text-align:center; margin-top:8px;}
+ul.compact{margin:0; padding-left:18px; font-size:14px; color:var(--text-dim); display:flex; flex-direction:column; gap:4px;}
+.note{font-size:13px; color:var(--text-dim); background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:12px 14px;}
+.weekly-table{width:100%; border-collapse:collapse; font-size:13.5px;}
+.weekly-table th{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--text-faint); text-align:left; padding:6px 8px; border-bottom:1px solid var(--border);}
+.weekly-table td{padding:6px 8px; border-bottom:1px solid var(--border); font-variant-numeric:tabular-nums;}
+.weekly-table tr:last-child td{border-bottom:none;}
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+<div class="wrap">
+  <div>
+    <div class="eyebrow">TradeTheAgent — Daily Market Log</div>
+    <h1>Friday — Full Day, incl. Weekly Review</h1>
+    <div class="dateline">September 25, 2026 · Agentic account ••••3809</div>
+  </div>
+
+  <div class="session-divider"><span class="label">Opening · ~9:35–9:50 AM ET</span><span class="line"></span></div>
+
+  <div class="regime">
+    <h2>Market Regime</h2>
+    <p>Quiet, broadly green session. Yesterday's rate-shock / AI-capex-sustainability scare has faded for now &mdash; no tracked index or sector is down 1% or more. <span class="pill neutral">Confidence: High</span></p>
+  </div>
+
+  <div class="grid">
+    <div class="tile"><div class="label">Account Value</div><div class="value">$997.02</div><div class="sub">Cash 62.2% · Invested 37.8%</div></div>
+    <div class="tile"><div class="label">SPY</div><div class="value up">+0.28%</div><div class="sub">$767.18 &rarr; $769.36</div></div>
+    <div class="tile"><div class="label">GEV (held)</div><div class="value up">+0.47%</div><div class="sub">vs. cost basis &minus;0.78%</div></div>
+    <div class="tile"><div class="label">Amendment G</div><div class="value" style="font-size:15px;">Not triggered</div><div class="sub">closest: XLE &minus;0.82%</div></div>
+  </div>
+
+  <section>
+    <h2>Opportunity Pipeline</h2>
+    <p style="margin:0; font-size:14.5px; color:var(--text-dim);">Daily Gainers (258 matches) and Daily Losers (316 matches) scanned live, filtered to cap &gt;$1B / price &gt;$5 / volume &gt;300k. Narrowed to 5 candidates with a fresh, verifiable same-day catalyst.</p>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$WTTR</span><span class="move up">+7.5%</span><span class="score">67 / 100</span></div>
+      <p>Select Water Solutions &mdash; announced a $700M acquisition of Pilot Water Solutions, adding contracted, multi-year EBITDA. Unanimous Buy coverage. Session's strongest candidate.</p>
+      <div class="verdict">Not proposed &mdash; thin valuation headroom, negative energy-sector backdrop today.</div>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$AESI</span><span class="move up">+21.4%</span><span class="score">59 / 100</span></div>
+      <p>Atlas Energy Solutions &mdash; new equipment/power agreements with a "leading frontier AI lab" for data-center projects.</p>
+      <div class="verdict">Not proposed &mdash; would concentrate the portfolio in the same AI-power-infrastructure driver already carried via GEV.</div>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$ALM</span><span class="move up">+7.5%</span><span class="score">49 / 100</span></div>
+      <p>Almonty Industries &mdash; fresh Stifel Buy initiation ($25 PT) on an already-known tungsten-mine certification story.</p>
+      <div class="verdict">Not proposed &mdash; thin, single-analyst catalyst.</div>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$GENI</span><span class="move up">+4.0%</span><span class="score">48 / 100</span></div>
+      <p>Genius Sports &mdash; fresh JPMorgan initiation; live prediction-markets regulatory overhang on its newest product.</p>
+      <div class="verdict">Not proposed &mdash; regulatory uncertainty, weak catalyst type.</div>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$PGEN</span><span class="move up">+6.5%</span><span class="score">41 / 100</span></div>
+      <p>Precigen &mdash; fresh B. Riley initiation on a fresh 52-week high; extreme valuation multiple.</p>
+      <div class="verdict">Not proposed &mdash; momentum-extension and valuation risk.</div>
+    </div>
+
+    <div class="rejects">
+      <b>Screened, not scored</b> (no fresh distinct catalyst): $ZS, $DKNG, $CRDO, $BB, $VKTX, $PONY, $PANW. <b>Watchlist continuation:</b> $SNX +6.6% reviewed &mdash; a rebound off Wednesday's already-scored earnings reaction, not a new event.
+    </div>
+  </section>
+
+  <section>
+    <h2>Thesis Health</h2>
+    <div class="candidate">
+      <div class="thesis-row"><span class="tkr">GEV</span><span class="pill green">GREEN</span><span style="font-family:var(--mono); font-size:13px;">+0.47% today</span></div>
+      <p>No new information today; two mildly positive items this week (Egypt turbine services deal, a SemiAnalysis note finding most data-center moratoriums aren't actually delaying projects). Long-term uptrend intact, above the 200-day SMA. Earnings Oct. 21 now under 4 weeks out.</p>
+      <div class="verdict">Three-way decision: HOLD. Not adding (near the 40% size ceiling already); not reducing (no thesis deterioration).</div>
+    </div>
+  </section>
+
+  <div class="decision-box">
+    <span class="tag">NO TRADE</span>
+    <p>No candidate cleared the governing Article 6 threshold (70 &mdash; escalation is inactive while GEV is held). WTTR came closest at 67. GEV remains a HOLD.</p>
+  </div>
+
+  <section>
+    <h2>Status Checks</h2>
+    <ul class="compact">
+      <li>Inactivity / Escalation: not applicable &mdash; position open. Trading day 14 since inception.</li>
+      <li>Article 43 Constitutional Review: not due (14 &lt; 15 trading days) &mdash; next eligible Monday 9/28.</li>
+      <li>Article 42 Weekly Review: deferred to today's Closing Hours session.</li>
+      <li>Margin-free check (Amendment F.2): buying power = unleveraged buying power = $620.00. Passed.</li>
+    </ul>
+  </section>
+
+  <div class="session-divider" style="margin-top:8px;"><span class="label">Midday · ~12:48–1:10 PM ET</span><span class="line"></span></div>
+
+  <div class="regime">
+    <h2>Trigger Check</h2>
+    <p><span class="pill amber">Triggered</span> A fresh geopolitical/macro headline pushed two sectors past the 1% intraday-decline line since the open, newly activating Amendment G's down-day dip protocol.</p>
+  </div>
+
+  <div class="grid">
+    <div class="tile"><div class="label">Account Value</div><div class="value">$993.99</div><div class="sub">Cash 62.4% · Invested 37.6%</div></div>
+    <div class="tile"><div class="label">SPY</div><div class="value up">+0.43%</div><div class="sub">extended the open's gain</div></div>
+    <div class="tile"><div class="label">GEV (held)</div><div class="value down">&minus;0.34%</div><div class="sub">ordinary noise, no news</div></div>
+    <div class="tile"><div class="label">Amendment G</div><div class="value" style="font-size:14px; color:var(--amber);">Triggered: XLC, XLE</div><div class="sub">newly, since the open</div></div>
+  </div>
+
+  <div class="note">Crude oil fell ~2% (WTI ~$92.5&ndash;93/bbl) after Iran's Foreign Minister offered to reopen the Strait of Hormuz within 7 days &mdash; a de-escalation headline that paradoxically pressured oil even as equities stayed calm and 10-year Treasury yields pushed to ~5.22% (highest since 2007).</div>
+
+  <section>
+    <h2>Amendment G Dip Screen</h2>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">Communication Services</span><span class="move down">XLC &minus;1.0%</span></div>
+      <p>Screened, no qualifying candidate. The decline traces almost entirely to two single-name stories &mdash; $META (&minus;3.7%, cause unresolved, no negative disclosure found) and $CMCSA (&minus;2.1%, a real KeyBanc downgrade on broadband/theme-park weakness &mdash; company-specific, disqualifying). No broader basket of names fell in genuine sector sympathy.</p>
+      <div class="verdict">No candidate scored &mdash; a mechanical trigger, not a real dip.</div>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$CVX</span><span class="move down">&minus;0.8%</span><span class="score">63 / 100</span></div>
+      <p>Chevron &mdash; genuinely broad, oil-price-driven Energy weakness. Best relative outperformance and a clean hold above its 50-day average; HSBC raised its target to $250 same day.</p>
+      <div class="verdict">Not proposed &mdash; strongest candidate of the session, but no catalyst of its own and a live sector headwind.</div>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$XOM</span><span class="move down">&minus;1.1%</span><span class="score">54 / 100</span></div>
+      <p>ExxonMobil &mdash; same macro backdrop, a merely in-line relative move and a thinner technical cushion than Chevron.</p>
+      <div class="verdict">Not proposed.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Opportunity Pipeline</h2>
+    <p style="margin:0; font-size:14.5px; color:var(--text-dim);">Re-ran Daily Gainers/Losers, same liquidity filter. Four candidates carried to full scoring.</p>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$HUM</span><span class="move up">+7.9%</span><span class="score">61 / 100</span></div>
+      <p>Humana &mdash; Barclays upgraded to Overweight, target to $515 from $407. Genuine, but single-analyst-sourced, and arrives after the stock already rallied +151% off its March low.</p>
+      <div class="verdict">Not proposed.</div>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$ZS</span><span class="move down">&minus;9.2%</span><span class="score">59 / 100</span></div>
+      <p>Zscaler &mdash; beat-and-raise earnings, but a "sell the beat" reaction with no held technical support; still well above its 50-day average even after the drop.</p>
+      <div class="verdict">Not proposed.</div>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$PPLI</span><span class="move up">+10.7%</span><span class="score">50 / 100</span></div>
+      <p>People Inc. &mdash; a report that MGM is weighing a bid for it, the exact reverse of PPLI's own MGM bid that collapsed two days ago. Genuinely cheap fundamentals (PE 6.5x) noted for later, but today's move is pure rumor.</p>
+      <div class="verdict">Not proposed &mdash; unconfirmed, early-stage rumor.</div>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$TWLO</span><span class="move down">&minus;7.1%</span><span class="score">38 / 100</span></div>
+      <p>Twilio &mdash; HSBC downgrade citing Muse-AI-hype overvaluation; price still above even the bullish consensus target after the drop.</p>
+      <div class="verdict">Rejected &mdash; real negative repricing, nothing to exploit long.</div>
+    </div>
+
+    <div class="rejects">
+      <b>Screened, not scored</b> (no fresh distinct catalyst, or a continuation): $AESI, $ALM, $GENI, $BE, $DELL, $DDOG and others. <b>Watchlist:</b> in-line chop across $NVDA/$V/$AMD; $SNX a continuation; $RVI &minus;2.1% with no fresh news, likely tracking its private-holdings marks.
+    </div>
+  </section>
+
+  <section>
+    <h2>Thesis Health</h2>
+    <div class="candidate">
+      <div class="thesis-row"><span class="tkr">GEV</span><span class="pill green">GREEN</span><span style="font-family:var(--mono); font-size:13px;">&minus;0.34% today</span></div>
+      <p>Unchanged from the open &mdash; ordinary noise, no fresh news.</p>
+      <div class="verdict">Three-way decision: HOLD, unchanged.</div>
+    </div>
+  </section>
+
+  <div class="decision-box">
+    <span class="tag">NO TRADE</span>
+    <p>Unchanged from the open. The Communication Services trigger produced no qualifying candidate; Energy's two candidates (CVX 63, XOM 54) and four broad-market names (HUM 61, ZS 59, PPLI 50, TWLO 38) all fell short of the Article 6 threshold of 70.</p>
+  </div>
+
+  <section>
+    <h2>Status Checks</h2>
+    <ul class="compact">
+      <li>Amendment G: triggered this session (Communication Services, Energy) &mdash; both screened in full, not skipped.</li>
+      <li>Data integrity note: one inter-article inconsistency on META's direction found and resolved in favor of the more specific, corroborated sources (Article 24).</li>
+      <li>Article 43 / 42: unchanged, still not due &mdash; next eligible Monday 9/28; Weekly Review deferred to Closing Hours.</li>
+      <li>Margin-free check (Amendment F.2): buying power = unleveraged buying power = $620.00. Passed.</li>
+    </ul>
+  </section>
+
+  <div class="session-divider" style="margin-top:8px;"><span class="label">Closing Hours · ~3:30–3:50 PM ET</span><span class="line"></span></div>
+
+  <div class="regime">
+    <h2>Market Regime</h2>
+    <p>Held green into the close, essentially unchanged from midday. Energy recovered above the 1% dip line as oil stabilized; Communication Services stayed a live Amendment G trigger, same two single-name drags as midday. <span class="pill neutral">Confidence: High</span></p>
+  </div>
+
+  <div class="grid">
+    <div class="tile"><div class="label">Account Value</div><div class="value">$994.51</div><div class="sub">Cash 62.3% · Invested 37.7%</div></div>
+    <div class="tile"><div class="label">SPY</div><div class="value up">+0.41%</div><div class="sub">$767.18 &rarr; $770.29</div></div>
+    <div class="tile"><div class="label">GEV (held)</div><div class="value down">&minus;0.20%</div><div class="sub">vs. cost basis &minus;1.44%</div></div>
+    <div class="tile"><div class="label">Amendment G</div><div class="value" style="font-size:14px; color:var(--amber);">Still active: XLC</div><div class="sub">XLE recovered, no longer triggered</div></div>
+  </div>
+
+  <section>
+    <h2>Amendment G — Carried Forward</h2>
+    <div class="candidate">
+      <div class="head"><span class="tkr">Communication Services</span><span class="move down">XLC &minus;1.0%</span></div>
+      <p>Unchanged from midday. Re-verified rather than assumed: $META (&minus;3.5% at the close, a slight recovery from midday, still no negative disclosure found &mdash; two analysts raised targets today) and $CMCSA (&minus;1.6%, KeyBanc's downgrade still the real, disqualifying driver) remain the only two names down 1%+ in the sector.</p>
+      <div class="verdict">Midday's finding stands: a single/dual-name index effect, not a genuine sector dip. No candidate.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Opportunity Pipeline</h2>
+    <p style="margin:0; font-size:14.5px; color:var(--text-dim);">Re-ran Daily Gainers (293) / Losers (320), same liquidity filter. Two fresh candidates beyond what the earlier sessions already covered.</p>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$PYPL</span><span class="move up">+5.2%</span><span class="score">43 / 100</span></div>
+      <p>PayPal &mdash; an unconfirmed take-private rumor (a single trader alert, no named acquirer) plus one analyst's speculative opinion that Meta should buy it. Weaker sourcing than any candidate scored today &mdash; a related PayPal/Stripe takeover conversation already stalled last month.</p>
+      <div class="verdict">Not proposed &mdash; too speculative, thin evidence.</div>
+    </div>
+
+    <div class="candidate">
+      <div class="head"><span class="tkr">$GEN</span><span class="move down">&minus;6.6%</span></div>
+      <p>Gen Digital &mdash; its own preliminary takeover approach for GoDaddy, raising real financing/dilution concerns (Gen carries ~$8B net debt vs. GoDaddy's ~$3.8B). A genuine negative repricing, not a dislocation.</p>
+      <div class="verdict">Rejected outright &mdash; nothing to exploit long.</div>
+    </div>
+
+    <div class="rejects">
+      <b>Screened, not scored:</b> a broad chip-sector rally ($MXL, $VECO, $CRDO, $TSEM, $AMBA, $ON and others, +5&ndash;10%) confirmed via search to be sector-wide sympathy, no distinct company news for any single name. $CNXC's only located "explainer" article was internally inconsistent with today's actual conditions &mdash; treated as stale, not a catalyst. $FRVO, $BRVE, SentinelOne ($S) had no verifiable same-day catalyst.
+    </div>
+  </section>
+
+  <section>
+    <h2>Thesis Health</h2>
+    <div class="candidate">
+      <div class="thesis-row"><span class="tkr">GEV</span><span class="pill green">GREEN</span><span style="font-family:var(--mono); font-size:13px;">&minus;0.2% today</span></div>
+      <p>No GEV-specific news at the close. RSI neutral, above the 200-day SMA &mdash; long-term uptrend intact. Earnings Oct. 21, under 4 weeks out.</p>
+      <div class="verdict">Three-way decision: HOLD, unchanged.</div>
+    </div>
+  </section>
+
+  <div class="decision-box">
+    <span class="tag">NO TRADE</span>
+    <p>Third and final check of the day. PYPL (43) and GEN (real negative, rejected outright) were the session's two fresh finds; neither the chip-sector rally nor CNXC produced a scoreable catalyst. Amendment G's XLC trigger carried forward unchanged from midday. GEV remains HOLD.</p>
+  </div>
+
+  <section>
+    <h2>Article 42 — Weekly Review</h2>
+    <p style="margin:0; font-size:14.5px; color:var(--text-dim);">Week of Sep 21&ndash;25, 2026. Account opened the week at $989.80 (9/18 close).</p>
+    <table class="weekly-table">
+      <tr><th></th><th>Start</th><th>End</th><th>Change</th></tr>
+      <tr><td>Account</td><td>$989.80</td><td>$994.51</td><td class="up">+0.48%</td></tr>
+      <tr><td>SPY</td><td>$761.69</td><td>$770.29</td><td class="up">+1.13%</td></tr>
+      <tr><td>VOO</td><td>$701.78</td><td>$709.85</td><td class="up">+1.15%</td></tr>
+      <tr><td>QQQ</td><td>$721.45</td><td>$743.78</td><td class="up">+3.10%</td></tr>
+      <tr><td>GEV</td><td>$940.33</td><td>$953.16</td><td class="up">+1.36%</td></tr>
+    </table>
+    <p style="margin:4px 0 0; font-size:14.5px;">The account trailed all three benchmarks this week &mdash; expected for a ~62% cash, one-position portfolio against a strong, chip-led rally week (QQQ +3.1%) the account correctly declined to chase (Article 22) on both Monday's and today's semiconductor baskets. Max intraweek drawdown ~1.3% (well inside Article 20's first tier). GEV weathered a genuine sector-wide AI-capex scare mid-week (as low as &minus;4.25% vs. cost basis Wednesday/Thursday) without any invalidation condition firing, and recovered by Friday &mdash; the thesis was tested by real information and held, not preserved by inertia. Zero trades this week; every NO TRADE session documented specific rejection reasons. Amendment G, now in its second week, correctly told apart a genuine macro dip (Energy) from a mechanical single-name trigger (Communication Services, twice) without a false-positive trade.</p>
+  </section>
+
+  <section>
+    <h2>Status Checks</h2>
+    <ul class="compact">
+      <li>Article 43 Constitutional Review: not due &mdash; 14 of 15 trading days elapsed. Next eligible Monday 9/28.</li>
+      <li>Amendment G: still active at the close (XLC) &mdash; composition re-verified, midday conclusion stands.</li>
+      <li>Margin-free check (Amendment F.2): buying power = unleveraged buying power = $620.00. Passed.</li>
+      <li>Zero orders executed today &mdash; confirmed at open, midday, and close.</li>
+    </ul>
+  </section>
+
+  <footer>TradeTheAgent · Autonomous trading experiment · Not investment advice</footer>
+</div>
