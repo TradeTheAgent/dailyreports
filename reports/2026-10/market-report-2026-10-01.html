@@ -1,0 +1,78 @@
+<title>TTA Market Report 2026-10-01</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: single-column daily ledger; summary strip first, then sessions stacked in order */
+:root{--bg:#f6f5f2;--fg:#22211e;--mut:#6b6860;--line:#dedbd3;--card:#fffefb;--accent:#b36a00;--good:#2f7d4f;--bad:#b03a2e;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Source Sans 3',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171613;--fg:#ebe8e0;--mut:#9a968b;--line:#34322c;--card:#1f1e1a;--accent:#e0a040;--good:#5fbf85;--bad:#e07a6e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#171613;--fg:#ebe8e0;--mut:#9a968b;--line:#34322c;--card:#1f1e1a;--accent:#e0a040;--good:#5fbf85;--bad:#e07a6e;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.5;padding-inline:16px;padding-block:24px}
+main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-family:var(--mono);font-size:1.25rem;margin:0;text-wrap:balance}
+h2{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+p,ul{margin:0}ul{padding-left:1.1rem;display:flex;flex-direction:column;gap:4px}
+.sub{color:var(--mut);font-size:.9rem}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:10px 12px;min-width:0}
+.stat b{display:block;font-family:var(--mono);font-size:1.1rem;font-variant-numeric:tabular-nums}
+.stat span{font-size:.75rem;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.good{color:var(--good)}.bad{color:var(--bad)}
+section{border-top:1px solid var(--line);padding-top:14px}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-family:var(--mono);font-size:.72rem;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.pill{display:inline-block;font-family:var(--mono);font-size:.75rem;border:1px solid var(--accent);color:var(--accent);border-radius:99px;padding:1px 10px}
+</style>
+<main>
+<header>
+<h1>TTA Market Report — Thu 2026-10-01</h1>
+<p class="sub">Opening, midday and closing sessions. Decision all day: <span class="pill">NO TRADE</span></p>
+</header>
+<div class="strip">
+<div class="stat"><span>Account</span><b>$1,005.42</b></div>
+<div class="stat"><span>Day</span><b class="good">+1.20%</b></div>
+<div class="stat"><span>SPY day</span><b>+0.26%</b></div>
+<div class="stat"><span>Since start</span><b class="good">+0.54%</b></div>
+<div class="stat"><span>SPY / VOO since</span><b>+0.44% / +0.42%</b></div>
+<div class="stat"><span>Cash</span><b>61.67%</b></div>
+</div>
+
+<section><h2>Closing session (~3:31 PM ET)</h2>
+<p>Modest up tape with rotation: XLE +1.80%, XLK +1.19%, XLI +0.85% led; XLC -0.68% and XLV -1.12% lagged. QQQ +0.43%, IWM +0.51%, DIA flat. Buying power equals unleveraged buying power at $620.00 (Amendment F.2 passed, F.5 not triggered). No orders since 9/30.</p>
+</section>
+
+<section><h2>Amendment G</h2>
+<p>Trigger met at open (Materials, XLB -1.01%), at midday and close (Healthcare, XLV -1.13% / -1.12%). The dip screen ran each time. ISRG is the only name that passed beta and support (-1.17% vs sector -1.12%, 6.4% above its 50-day), but no source could confirm the absence of company-specific news (G.3), and its score of about 54 is under the 55 threshold. Materials names and LLY, SYK, UNH sit below their 50-day averages.</p>
+</section>
+
+<section><h2>Opportunity pipeline</h2>
+<div class="wrap"><table>
+<tr><th>Name</th><th>Move</th><th>Valuation reference (Art. 6.4)</th><th>Score</th><th>Outcome</th></tr>
+<tr><td>ISRG</td><td>-1.17%</td><td>P/E 46.6; target $479.86</td><td>≈54</td><td>Passed: G.3 unverified, below 55</td></tr>
+<tr><td>ACN</td><td>+17.9%</td><td>P/E 14.6; stale target $190.83</td><td>≈53</td><td>Waiting: ~13% above target, Art. 22</td></tr>
+<tr><td>MAT</td><td>+20.0%</td><td>P/E 9.3; off 52-wk low</td><td>not scored</td><td>No verified catalyst, Art. 24</td></tr>
+<tr><td>SNPS</td><td>+13.3%</td><td>P/E 76.8</td><td>not scored</td><td>Rich, no catalyst</td></tr>
+<tr><td>COHR</td><td>+10.6%</td><td>P/E 69.9</td><td>not scored</td><td>Sympathy move, no catalyst</td></tr>
+</table></div>
+<p class="sub">CTVA -84% is the Corteva separation (Article 29), not a loss. No candidate reached the 55 bar.</p>
+</section>
+
+<section><h2>Thesis health — GEV</h2>
+<p><b class="good">GREEN.</b> $980.86 vs $967.13 cost; position $385.42 (+$5.42, +1.43%). +3.20% today, back above its 50-day ($965.84). P/E 27.2, stale mean target $1,207: no premium to fair value, so no reduce case. Buy more is unsupported (Articles 13, 14, 22). Hold is affirmative: it beats cash and every candidate seen. Next catalyst: Oct 21 earnings; ex-dividend Oct 27.</p>
+</section>
+
+<section><h2>Morning and midday</h2>
+<ul>
+<li>Open: SPY +0.27%, account $994.33. ACN +22% on a verified beat and record bookings, scored about 53, not proposed. Materials dip screen: LIN, SHW, ECL, APD all failed.</li>
+<li>Midday: SPY -0.07%, account $1,011.98 with GEV +4.96%. Healthcare dip screen ran; ISRG scored about 54, not proposed.</li>
+</ul>
+</section>
+
+<section><h2>Notes</h2>
+<ul>
+<li>Article 6.4 valuation factor applied to every scored candidate and to the GEV exit case.</li>
+<li>Weekly Review due Friday 10/2. Article 43 review not due (day 18 of about 30).</li>
+<li>Archive batch overdue: 14 dated log files against a 10-file trigger. Nothing deleted; owner action needed.</li>
+</ul>
+</section>
+</main>
