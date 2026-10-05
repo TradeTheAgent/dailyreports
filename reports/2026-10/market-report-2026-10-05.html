@@ -1,0 +1,66 @@
+<title>TTA Market Report 2026-10-05</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: single column ledger; summary stats first, then decision, pipeline table, thesis, checks */
+:root{--bg:#faf8f4;--fg:#26231e;--mute:#6b665d;--line:#e4dfd5;--card:#f1ede4;--accent:#b8730f;--good:#2f7d4f;--warn:#a8590a;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Source Sans 3',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17150f;--fg:#ece7db;--mute:#9b9585;--line:#2e2a20;--card:#211e16;--accent:#e0a040;--good:#6fcf97;--warn:#e8a05a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17150f;--fg:#ece7db;--mute:#9b9585;--line:#2e2a20;--card:#211e16;--accent:#e0a040;--good:#6fcf97;--warn:#e8a05a;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.5}
+main{max-width:780px;margin:0 auto;padding-inline:16px;padding-block:24px 48px;display:flex;flex-direction:column;gap:24px}
+h1{font-family:var(--mono);font-size:1.25rem;margin:0;text-wrap:balance}
+h2{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+p{margin:0 0 8px}.sub{color:var(--mute);font-size:.9rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:var(--card);padding:12px;border-radius:6px}
+.stat b{display:block;font-family:var(--mono);font-size:1.15rem;font-variant-numeric:tabular-nums}
+.stat span{color:var(--mute);font-size:.8rem}
+.pill{font-family:var(--mono);font-size:.75rem;padding:2px 8px;border-radius:99px;border:1px solid var(--line)}
+.good{color:var(--good)}.warn{color:var(--warn)}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;text-transform:uppercase;color:var(--mute)}
+.mono{font-family:var(--mono)}
+li{margin-bottom:4px}
+</style>
+<main>
+<header><h1>Closing Report · Mon 2026-10-05</h1><p class="sub">Account marks ~3:31 PM ET. Mirrors claude/market-log-2026-10-05.md.</p></header>
+
+<section><h2>Portfolio</h2>
+<div class="stats">
+<div class="stat"><b>$1,008.40</b><span>Account value</span></div>
+<div class="stat"><b>+0.84%</b><span>Since inception</span></div>
+<div class="stat"><b>-0.01%</b><span>Day vs 10/2 close (SPY +0.83%)</span></div>
+<div class="stat"><b>61.5% / 38.5%</b><span>Cash / invested</span></div>
+</div>
+<p class="sub" style="margin-top:8px">SPY since first-trade reference +1.95%, VOO +1.92%: account trails by about 1.1pp (cash drag in a rising tape). 1 position, no open orders, no trades today.</p></section>
+
+<section><h2>Decision</h2>
+<p><span class="pill warn">NO TRADE</span> &nbsp; <span class="pill good">GEV HOLD (GREEN)</span></p>
+<p>No candidate cleared the Day 4+ escalation floor of 45 with verified evidence. Every large mover had an unverified cause (Art.24). Cash at 61.5% is deliberate under Art.3.3. Inactivity day 12 (human review flagged to owner).</p></section>
+
+<section><h2>Market regime</h2>
+<p>Broad risk-on: SPY +0.83%, QQQ +0.94%, IWM +0.81%, DIA +0.34%. Ten of eleven sectors up (XLB +1.65%, XLC +1.19%, XLV +0.92%, XLE +0.92%); only XLRE -0.40% lagged.</p>
+<p><b>Amendment G:</b> trigger not met at open, midday or close; no index or sector down 1%+. No dip screen run.</p></section>
+
+<section><h2>Opportunity pipeline (5 shortlisted)</h2>
+<div class="wrap"><table>
+<tr><th>Ticker</th><th>Move</th><th>Valuation reference (Art.6.4)</th><th>Est.</th><th>Why not</th></tr>
+<tr><td class="mono">LEN</td><td>-6.8%, new 52-wk low</td><td>P/E 15.1, mean target $75.85 (price $74.40), 10 sell / 3 buy</td><td>~40</td><td>Falling knife, no base, Art.24 cause unverified</td></tr>
+<tr><td class="mono">WDC</td><td>+6.0% rebound</td><td>P/E 17.1, target $684 (stale 8/19)</td><td>~46</td><td>Industry selloff cause unverified, Art.24/G.3</td></tr>
+<tr><td class="mono">CHRW</td><td>-10.0%</td><td>P/E 30.1, target $204 (+44%)</td><td>~45</td><td>Cause unverified; P/E not cheap</td></tr>
+<tr><td class="mono">PTC</td><td>+33.7%</td><td>P/E 13.9, target $181.67 (price ~6% above)</td><td>~40</td><td>Unverified gap, possible deal cap, Art.22</td></tr>
+<tr><td class="mono">MELI</td><td>+9.7%</td><td>P/E 46.2, target $2,299 (+24%)</td><td>~42</td><td>Brazil-sympathy gap, Art.22/24</td></tr>
+</table></div>
+<p class="sub">Accepted at or above the floor: 0. Gainers scan 326 rows, losers 308 (top 200 each); filter cap above $1B, price above $5, volume above 300k gave 52 gainers and 15 losers. Saved quality screen: 8 matches (WDC, AMGN, JNJ, INCY, LULU, NFLX, BMY, CMG), none reached scoring.</p></section>
+
+<section><h2>Thesis health (Art.34)</h2>
+<p><b>GEV: GREEN.</b> $988.52, -0.02% on the day, +2.21% vs $967.13 cost (+$8.40). P/E ~28, mean target $1,206 (stale 7/22), no premium, so no REDUCE-EXIT case. BUY MORE unsupported (Art.13/14/22). HOLD beats cash and every candidate seen (Art.17). Catalyst: Oct 21 earnings; ex-div 10/27 (Art.29).</p></section>
+
+<section><h2>Checks</h2>
+<ul>
+<li>F.2: buying power $620.00 = unleveraged $620.00; F.5 not triggered. Unsettled funds $0.00 (Amendment D). No orders since 9/30.</li>
+<li>Art.6.4 applied to all five candidates and to GEV.</li>
+<li>Art.43 not due (5 trading days since the 9/28 review). Weekly review not due (not the last trading day of the week).</li>
+</ul></section>
+</main>
