@@ -1,0 +1,110 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>TTA Report 2026-11-13</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; mono labels and figures; amber accent (TTA house style). */
+:root{--bg:#faf8f4;--fg:#26221c;--mute:#6f675b;--line:#e3ddd1;--card:#ffffff;--accent:#c27a12;--good:#2f7d4f;--warn:#b0561a;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Source Sans 3',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17150f;--fg:#ece6d8;--mute:#9d9483;--line:#332f25;--card:#1f1c14;--accent:#e0a043;--good:#5fbf86;--warn:#e08a52;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17150f;--fg:#ece6d8;--mute:#9d9483;--line:#332f25;--card:#1f1c14;--accent:#e0a043;--good:#5fbf86;--warn:#e08a52;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 var(--sans);padding-block:24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:760px;margin:auto;display:flex;flex-direction:column;gap:22px;min-width:0}
+section{min-width:0}
+h1{font:600 22px var(--mono);margin:0;color:var(--accent);text-wrap:balance}
+h2{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
+.sub{color:var(--mute);margin:4px 0 0}
+ul{margin:0;padding-left:18px}li{margin:4px 0}
+b{font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.pill{font:600 11px var(--mono);padding:2px 8px;border:1px solid var(--good);color:var(--good)}
+.w{color:var(--warn)}
+.wrap{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+th{color:var(--mute);font-weight:400}
+footer{font-size:13px}
+</style></head><body>
+<main>
+<header>
+<h1>TTA Report · 2026-11-13</h1>
+<p class="sub">Constitution V7 · Friday · Morning (not completed) + Midday (4 trades) + Closing (no trade) · weekly review · day counter 0</p>
+</header>
+
+<section><h2>Integrity (Closing)</h2>
+<div class="row"><span class="pill">HALT CLEAR</span><span class="pill">BRAKE CLEAR</span><span class="pill">ART.6.1 PASS</span><span class="pill">DAY TRADES 0/3</span></div>
+<ul>
+<li>Brokerage data was unavailable at the Morning run, so that run read nothing and placed no orders. Access was back at Midday and Closing.</li>
+<li>Buying power equals unleveraged buying power; cash not negative. No open orders.</li>
+<li>Closing value $909.40: equities $890.49, cash $18.91 = 2.08% (reserve 2%). Peak Closing $968.36, drawdown 6.09%, brake level $726.27.</li>
+<li>Day: -$0.55 (-0.06%) vs SPY -0.60%. Since inception -9.06% vs SPY -1.13%.</li>
+</ul></section>
+
+<section><h2>Market regime (Closing)</h2>
+<ul>
+<li>SPY $752.61 (-0.60%), QQQ $678.57 (-1.39%), IWM $277.10 (-0.48%). Semiconductors lead the decline: AMD -9.4%, CSCO -6.3%, TER -5.3%, AVGO -5.2%, NVDA -2.4%.</li>
+<li>BTC $68,866 (+0.7%), ETH $1,946 (+1.1%), SOL $80.08 (+2.3%). No dip threshold met.</li>
+<li>Scans: daily gainers (308), daily losers (320), quality screen (35), breakout screen (12 hits; 20-day highs checked on daily bars).</li>
+</ul></section>
+
+<section><h2>Setups</h2>
+<div class="wrap"><table>
+<tr><th>Ticker</th><th>Rules</th><th>Evidence</th><th>Result</th></tr>
+<tr><td>STN</td><td>10.1 + 10.2</td><td>EPS $1.35 vs $1.24 (11/12); above the $79.63 20-day high; +15% vs pre-event close</td><td>Bought at Midday</td></tr>
+<tr><td>HAWK</td><td>10.1 + 10.2</td><td>Reported 11/12; above the $15.79 20-day high; volume about 2.3x average</td><td>Bought at Midday</td></tr>
+<tr><td>LFTO</td><td>10.1 + 10.2</td><td>EPS $0.47 vs $0.20 (11/12); $24.42 vs $19.82 20-day high; spread 0.5% at Closing</td><td>Unfunded</td></tr>
+<tr><td>WWW</td><td>10.1</td><td>$24.59 vs $23.84 20-day high; volume 2.1x</td><td>Unfunded</td></tr>
+<tr><td>PUBM</td><td>10.1</td><td>$20.45 vs $19.24 20-day high; volume 2.5x</td><td>Unfunded</td></tr>
+<tr><td>NU</td><td>10.2</td><td>EPS in line (11/12); +10.8% vs pre-event close; below 20-day high</td><td>Unfunded</td></tr>
+</table></div>
+<ul style="margin-top:8px">
+<li>Not qualifying: EDHL (spread 2.1%); CGON, KDP, KLAR, JBGS, CLBT, TNDM, MOD, MA, TRMK (below 20-day highs). Dips other than AVGO not analysed.</li>
+</ul></section>
+
+<section><h2>Positions (Closing)</h2>
+<div class="wrap"><table>
+<tr><th>Ticker</th><th>Last</th><th>vs cost</th><th>Target</th><th>Stop (close below)</th><th>Status</th></tr>
+<tr><td>LLY</td><td>$1,441.76</td><td>+3.4%</td><td>$1,560</td><td>$1,280</td><td>Hold</td></tr>
+<tr><td>IDXX</td><td>$704.24</td><td>+5.5%</td><td>$750</td><td>$668</td><td>Hold</td></tr>
+<tr><td>AVGO</td><td>$345.27</td><td>-4.7%</td><td>$405</td><td>$333</td><td class="w">Hold; -5.2% today</td></tr>
+<tr><td>MBGL</td><td>$23.20</td><td>+1.3%</td><td>$25.65</td><td>$21.00</td><td>Hold</td></tr>
+<tr><td>CHA</td><td>$14.39</td><td>+6.6%</td><td>$15.12</td><td>$13.50</td><td>Hold; stop raised at Midday</td></tr>
+<tr><td>STN</td><td>$84.90</td><td>-1.8%</td><td>$96.80</td><td>$79.60</td><td>Hold</td></tr>
+<tr><td>HAWK</td><td>$17.98</td><td>+4.8%</td><td>$19.20</td><td>$15.79</td><td>Hold</td></tr>
+<tr><td>LUNR</td><td>$12.41</td><td>-12.2%</td><td>$16.10</td><td>$13.20</td><td class="w">Exited at Midday: stop hit</td></tr>
+<tr><td>AZN</td><td>$184.88</td><td>+0.9%</td><td>$205</td><td>$174</td><td class="w">Exited at Midday: cash test</td></tr>
+</table></div>
+<ul style="margin-top:8px">
+<li>No target or stop was hit at Closing.</li>
+<li class="w">AVGO is back under its breakout level, 3.6% above its stop. It was held: at this price it meets the dip rule (10.3) in a sector-wide selloff, with no company-specific bad news found. No dated news source was read.</li>
+<li class="w">LUNR closed 11/12 under its $13.20 stop. The exit was due at the Morning run; it was sold at Midday, 6.0% through the stop.</li>
+<li>AZN met no entry rule 10 trading days after its earnings. CHA reached its +5% level at Midday; stop raised to cost.</li>
+</ul></section>
+
+<section><h2>Cash and exposure</h2>
+<ul>
+<li>Cash 2.08% vs the 2% reserve. Crypto 0% vs the 25% cap.</li>
+<li>Health care (LLY 27.1%, IDXX 13.1%) 40.2% of equity. MBGL 12.7%, AVGO 12.2%, STN 12.2%, CHA 11.4%, HAWK 9.3%. No position above 60%.</li>
+</ul></section>
+
+<section><h2>Decision</h2>
+<ul>
+<li><b>Morning: NO TRADE.</b> The run could not complete.</li>
+<li><b>Midday: TRADE.</b> Sold LUNR for $107.15 (realized -$14.85). Sold AZN for $86.73 (realized +$0.73). Bought STN $113.00 at $86.42. Bought HAWK $81.00 at $17.16.</li>
+<li><b>Closing: NO TRADE.</b> LFTO, WWW, PUBM and NU qualify, but cash is at the reserve and no exit condition was met.</li>
+<li>Next entry triggers: LFTO above $19.82 with a spread at or below 1%; WWW above $23.84; PUBM above $19.24; NU above $11.83; MA above $681.99; TRMK above $49.04; BTC or ETH down 6%, or SOL down 8%, in 24 hours.</li>
+</ul></section>
+
+<section><h2>Weekly review (Art.9), 11/07 to 11/13</h2>
+<ul>
+<li>Account +1.07% ($899.73 to $909.40) vs SPY +2.36%. Since inception -9.06% vs SPY -1.13%. Drawdown from peak 6.09%.</li>
+<li>14 trades: 8 buys, 6 sells. Realized -$40.95 on the week.</li>
+<li>Closed breakout + catalyst entries (10.1 + 10.2): 0 wins of 5, average -6.5% (TXT, HII, AZTA, RSKD, LUNR). Catalyst only (10.2): 1 of 1 (AZN +0.9%).</li>
+<li>Open book: five of seven positions green, +$18.50 unrealized.</li>
+<li class="w">Stops blown through between runs: AZTA 1.6%, RSKD 0.3%, LUNR 6.0% (Art.11.5 input).</li>
+<li class="w">Mistakes: three earnings-gap entries bought on the gap day were stopped out within one session (-$35.83); one name mis-qualified on liquidity (caught before any order); two stale watch-list triggers; one run without brokerage data.</li>
+<li>Lessons: an 8% stop sits inside one day's range for names that move 4 to 6% a day; the cash-test exits were cheap (average -0.5%), the losses came from what the proceeds bought.</li>
+<li>Proposals for the owner, not applied: wait a session or halve the size on gap-day entries of 10% or more; add a fallback for a run with no brokerage data.</li>
+</ul></section>
+
+<footer class="sub">Personal autonomous experiment. Not investment advice.</footer>
+</main>
+</body></html>
