@@ -1,0 +1,94 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>TTA Report 2026-11-16</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; mono labels and figures; amber accent (TTA house style). */
+:root{--bg:#faf8f4;--fg:#26221c;--mute:#6f675b;--line:#e3ddd1;--card:#ffffff;--accent:#c27a12;--good:#2f7d4f;--warn:#b0561a;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Source Sans 3',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17150f;--fg:#ece6d8;--mute:#9d9483;--line:#332f25;--card:#1f1c14;--accent:#e0a043;--good:#5fbf86;--warn:#e08a52;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17150f;--fg:#ece6d8;--mute:#9d9483;--line:#332f25;--card:#1f1c14;--accent:#e0a043;--good:#5fbf86;--warn:#e08a52;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 var(--sans);padding-block:24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:760px;margin:auto;display:flex;flex-direction:column;gap:22px;min-width:0}
+section{min-width:0}
+h1{font:600 22px var(--mono);margin:0;color:var(--accent);text-wrap:balance}
+h2{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
+.sub{color:var(--mute);margin:4px 0 0}
+ul{margin:0;padding-left:18px}li{margin:4px 0}
+b{font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.pill{font:600 11px var(--mono);padding:2px 8px;border:1px solid var(--good);color:var(--good)}
+.w{color:var(--warn)}
+.wrap{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+th{color:var(--mute);font-weight:400}
+footer{font-size:13px}
+</style></head><body>
+<main>
+<header>
+<h1>TTA Report · 2026-11-16</h1>
+<p class="sub">Constitution V7 · Monday · Morning (2 trades) + Midday (no trade) + Closing (2 trades) · day counter 0</p>
+</header>
+
+<section><h2>Integrity (Closing)</h2>
+<div class="row"><span class="pill">HALT CLEAR</span><span class="pill">BRAKE CLEAR</span><span class="pill">ART.6.1 PASS</span><span class="pill">DAY TRADES 0/3</span></div>
+<ul>
+<li>Buying power equals unleveraged buying power; cash not negative. No open orders after the run.</li>
+<li>Closing value $906.17: equities $887.10, cash $19.07 = 2.10% (reserve 2%). Peak Closing $968.36, drawdown 6.42%, brake level $726.27.</li>
+<li>Day: -$3.23 (-0.36%) vs SPY -2.07%. Since inception -9.38% vs SPY -2.95%.</li>
+</ul></section>
+
+<section><h2>Market regime (Closing)</h2>
+<ul>
+<li>SPY $738.75 (-2.07%). Semiconductors and AI hardware fell for a second session; no dated cause found.</li>
+<li>BTC $64,925 (+0.3%), ETH $1,817 (0.0%), SOL $71.30 (-0.3%). No dip threshold met.</li>
+<li>Scans: daily gainers and losers (saved scans, filtered by script), breakout check on daily bars for the watch names. Quality screen not re-run at Closing.</li>
+</ul></section>
+
+<section><h2>Setups</h2>
+<div class="wrap"><table>
+<tr><th>Ticker</th><th>Rules</th><th>Evidence</th><th>Result</th></tr>
+<tr><td>HTHT</td><td>10.1 + 10.2</td><td>EPS $0.93 vs $0.78; above the $51.16 20-day high; +8.6% vs pre-event close</td><td>Bought at Morning</td></tr>
+<tr><td>TSN</td><td>10.1 + 10.2</td><td>EPS $0.61 vs $0.61; $63.6 vs $61.62 20-day high; volume about 1.6x average</td><td>Bought at Closing</td></tr>
+<tr><td>WWW</td><td>10.2</td><td>EPS $0.79 vs $0.46 (11/12); above its high but volume about 0.7x average</td><td>Unfunded; fails volume pace</td></tr>
+<tr><td>LFTO, NU</td><td>10.2</td><td>Below their 20-day highs at Closing</td><td>Unfunded</td></tr>
+<tr><td>CGON</td><td>10.1</td><td>Above its high, no dated catalyst checked</td><td>Unfunded</td></tr>
+</table></div>
+<ul style="margin-top:8px">
+<li>Semiconductor and optical dips not analysed (no dated cause, no support test).</li>
+</ul></section>
+
+<section><h2>Positions (Closing)</h2>
+<div class="wrap"><table>
+<tr><th>Ticker</th><th>Last</th><th>vs cost</th><th>Target</th><th>Stop (close below)</th><th>Status</th></tr>
+<tr><td>LLY</td><td>$1,431.95</td><td>+2.7%</td><td>$1,560</td><td>$1,395</td><td>Hold; stop raised at Morning</td></tr>
+<tr><td>MBGL</td><td>$24.18</td><td>+5.5%</td><td>$25.65</td><td>$22.91</td><td>Hold; stop raised at Midday</td></tr>
+<tr><td>CHA</td><td>$13.96</td><td>+3.4%</td><td>$15.12</td><td>$13.50</td><td>Hold</td></tr>
+<tr><td>STN</td><td>$84.69</td><td>-2.0%</td><td>$96.80</td><td>$79.60</td><td>Hold</td></tr>
+<tr><td>HAWK</td><td>$18.45</td><td>+7.5%</td><td>$19.20</td><td>$17.16</td><td>Hold; stop raised at Morning</td></tr>
+<tr><td>HTHT</td><td>$54.71</td><td>-0.7%</td><td>$62.05</td><td>$51.16</td><td>Hold</td></tr>
+<tr><td>TSN (new)</td><td>$63.62</td><td>0.0%</td><td>$70.90</td><td>$61.62</td><td>Hold</td></tr>
+<tr><td>IDXX</td><td>$700.50</td><td>+4.9%</td><td>$750</td><td>$668</td><td class="w">Exited at Closing: cash test</td></tr>
+<tr><td>AVGO</td><td>$333.06</td><td>-8.1%</td><td>$405</td><td>$333</td><td class="w">Exited at Morning: failed thesis</td></tr>
+</table></div>
+<ul style="margin-top:8px"><li>No target or stop was hit on a close.</li></ul></section>
+
+<section><h2>Cash and exposure</h2>
+<ul>
+<li>Cash 2.10% vs 2% floor. Crypto 0% (cap 25%).</li>
+<li>Art.4: health care now LLY alone (27%). China consumer (HTHT, CHA) about 23%. Seven positions; none above 60%.</li>
+</ul></section>
+
+<section><h2>Decision</h2>
+<ul>
+<li><b>TRADE.</b> Four orders today. #25 AVGO sold, #26 HTHT bought (Morning). No trade at Midday. #27 IDXX sold (no entry rule met, catalyst aged out, +4.9%), #28 TSN bought (10.1 + 10.2) at Closing.</li>
+<li>Next entry triggers (need an exit to fund): WWW volume pace and above $24.92; LFTO above $24.70; NU above $11.83 through 11/19; CGON with a dated cause; MA above $681.99.</li>
+</ul></section>
+
+<section><h2>Earlier today</h2>
+<ul>
+<li><b>Morning:</b> sold AVGO $106.63 at $333.06 (realized -$9.37, -8.1%, failed breakout at its stop level); bought HTHT $107.00 at $55.08 (EPS $0.93 vs $0.78, new 20-day high). LLY and HAWK reached +5%: stops raised to cost.</li>
+<li><b>Midday:</b> no trade. Triggers fired (MBGL +5%, watch names past levels) but deployable cash was about $0.26 and no holding failed its exit test. MBGL stop raised to cost.</li>
+</ul></section>
+
+<footer class="sub">Personal autonomous experiment; not investment advice. Weekly review due Friday 2026-11-20.</footer>
+</main></body></html>
