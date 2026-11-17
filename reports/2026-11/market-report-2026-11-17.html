@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>TTA Report 2026-11-17</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; mono labels and figures; amber accent (TTA house style). */
+:root{--bg:#faf8f4;--fg:#26221c;--mute:#6f675b;--line:#e3ddd1;--card:#ffffff;--accent:#c27a12;--good:#2f7d4f;--warn:#b0561a;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Source Sans 3',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17150f;--fg:#ece6d8;--mute:#9d9483;--line:#332f25;--card:#1f1c14;--accent:#e0a043;--good:#5fbf86;--warn:#e08a52;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17150f;--fg:#ece6d8;--mute:#9d9483;--line:#332f25;--card:#1f1c14;--accent:#e0a043;--good:#5fbf86;--warn:#e08a52;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 var(--sans);padding-block:24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:760px;margin:auto;display:flex;flex-direction:column;gap:22px;min-width:0}
+section{min-width:0}
+h1{font:600 22px var(--mono);margin:0;color:var(--accent);text-wrap:balance}
+h2{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
+.sub{color:var(--mute);margin:4px 0 0}
+ul{margin:0;padding-left:18px}li{margin:4px 0}
+b{font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.pill{font:600 11px var(--mono);padding:2px 8px;border:1px solid var(--good);color:var(--good)}
+.w{color:var(--warn)}
+.wrap{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+th{color:var(--mute);font-weight:400}
+footer{font-size:13px}
+</style></head><body>
+<main>
+<header>
+<h1>TTA Report · 2026-11-17</h1>
+<p class="sub">Constitution V7 · Tuesday · Morning (5 trades) + Midday (no trade) + Closing (no trade) · day counter 0</p>
+</header>
+
+<section><h2>Integrity (Closing)</h2>
+<div class="row"><span class="pill">HALT CLEAR</span><span class="pill">BRAKE CLEAR</span><span class="pill">ART.6.1 PASS</span><span class="pill">DAY TRADES 0/3</span></div>
+<ul>
+<li>Buying power equals unleveraged buying power; cash not negative. No open orders after the run.</li>
+<li>Closing value $904.58: equities $885.53, cash $19.05 = 2.11% (reserve 2%). Peak Closing $968.36, drawdown 6.59%, brake level $726.27.</li>
+<li>Day: -$1.59 (-0.18%) vs SPY -1.21%. Since inception -9.54% vs SPY -3.98%.</li>
+</ul></section>
+
+<section><h2>Market regime (Closing)</h2>
+<ul>
+<li>SPY $730.96 (-1.21%), QQQ -1.10%, IWM -1.37%, SMH -1.36%. Steady drift lower through the session; second down day.</li>
+<li>BTC $63,923 (-1.6%), ETH $1,798 (-1.9%), SOL $73.02 (+0.1%). No dip threshold met.</li>
+<li>Scans: daily gainers, daily losers and the quality screen (saved scans, filtered by script); breakout checks on daily bars for BILL, RYTM, SHAZ.</li>
+</ul></section>
+
+<section><h2>Setups</h2>
+<div class="wrap"><table>
+<tr><th>Ticker</th><th>Rules</th><th>Evidence</th><th>Result</th></tr>
+<tr><td>KLAR</td><td>10.1 + 10.2</td><td>Q3 today (EPS miss); above the $14.18 20-day high</td><td>Bought at Morning</td></tr>
+<tr><td>ENR</td><td>10.1 + 10.2</td><td>EPS $1.37 vs $1.30; above the $25.83 20-day high</td><td>Bought at Morning</td></tr>
+<tr><td>AS</td><td>10.2</td><td>EPS $0.42 vs $0.35; +8% at entry vs pre-event close</td><td>Bought at Morning</td></tr>
+<tr><td>ACM</td><td>10.1 + 10.2</td><td>EPS $1.63 vs $1.59; $81.91 vs $73.20 20-day high; spread now 0.05%</td><td>Unfunded (spread too wide at Morning)</td></tr>
+<tr><td>BILL</td><td>10.1</td><td>$64.65 vs $58.47 20-day high; volume about 3x average</td><td>Unfunded; catalyst not checked</td></tr>
+<tr><td>RYTM, SHAZ</td><td>none</td><td>Below their 20-day highs</td><td>Watch</td></tr>
+</table></div>
+<ul style="margin-top:8px">
+<li>Dips (CRM, NXT, CSIQ) not analysed: no dated cause or support test, no cash.</li>
+</ul></section>
+
+<section><h2>Positions (Closing)</h2>
+<div class="wrap"><table>
+<tr><th>Ticker</th><th>Last</th><th>vs cost</th><th>Target</th><th>Stop (close below)</th><th>Status</th></tr>
+<tr><td>ENR (new)</td><td>$27.59</td><td>+6.2%</td><td>$29.09</td><td>$25.97</td><td>Hold; +5% reached, stop raised to cost</td></tr>
+<tr><td>HAWK</td><td>$18.41</td><td>+7.3%</td><td>$19.20</td><td>$17.16</td><td>Hold</td></tr>
+<tr><td>MBGL</td><td>$23.85</td><td>+4.1%</td><td>$25.65</td><td>$22.91</td><td>Hold</td></tr>
+<tr><td>TSN</td><td>$63.67</td><td>+0.1%</td><td>$70.90</td><td>$61.62</td><td>Hold</td></tr>
+<tr><td>KLAR (new)</td><td>$14.24</td><td>-1.0%</td><td>$16.10</td><td>$13.63</td><td>Hold</td></tr>
+<tr><td>HTHT</td><td>$54.03</td><td>-1.9%</td><td>$62.05</td><td>$51.16</td><td>Hold</td></tr>
+<tr><td>AS (new)</td><td>$30.50</td><td>-2.5%</td><td>$35.03</td><td>$29.10</td><td>Hold</td></tr>
+<tr><td>STN</td><td>$82.73</td><td>-4.3%</td><td>$96.80</td><td>$79.60</td><td>Hold</td></tr>
+<tr><td>LLY</td><td>$1,429.50</td><td>+2.5%</td><td>$1,560</td><td>$1,395</td><td class="w">Exited at Morning: cash test</td></tr>
+<tr><td>CHA</td><td>$14.06</td><td>+4.1%</td><td>$15.12</td><td>$13.50</td><td class="w">Exited at Morning: cash test</td></tr>
+</table></div>
+<ul style="margin-top:8px"><li>No target or stop was hit on a close.</li></ul></section>
+
+<section><h2>Cash and exposure</h2>
+<ul>
+<li>Cash 2.11% vs 2% floor. Crypto 0% (cap 25%).</li>
+<li>Art.4: consumer staples (ENR, TSN) about 27%; consumer discretionary (AS, HTHT) about 24%; industrials (STN, HAWK) about 22%; MBGL 13%; KLAR 12%. Eight positions; none above 60%.</li>
+</ul></section>
+
+<section><h2>Decision</h2>
+<ul>
+<li><b>NO TRADE at Closing.</b> Deployable cash about $0.96 and every holding still meets an entry rule, so no exit funds ACM or BILL.</li>
+<li>Next entry triggers (need an exit to fund): ACM above $73.20 with spread at or under 1% through 11/23; BILL above $58.47 with a dated catalyst; RYTM above $117.84.</li>
+</ul></section>
+
+<section><h2>Earlier today</h2>
+<ul>
+<li><b>Morning:</b> sold LLY (realized +$5.95, +2.5%) and CHA (+$3.99, +4.1%) on the cash test; bought KLAR $113, AS $113 and ENR $119 on today's earnings. ACM passed over on a wide spread.</li>
+<li><b>Midday:</b> no trade. ACM's spread tightened (trigger fired) but deployable cash was about $0.91 and no holding failed its exit test.</li>
+</ul></section>
+
+<footer class="sub">Personal autonomous experiment; not investment advice. Weekly review due Friday 2026-11-20.</footer>
+</main></body></html>
