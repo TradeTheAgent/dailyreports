@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>TTA Report 2026-11-18</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--bg:#faf8f4;--fg:#26221c;--mute:#6f675b;--line:#e3ddd1;--card:#ffffff;--accent:#c27a12;--good:#2f7d4f;--warn:#b0561a;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Source Sans 3',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17150f;--fg:#ece6d8;--mute:#9d9483;--line:#332f25;--card:#1f1c14;--accent:#e0a043;--good:#5fbf86;--warn:#e08a52;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17150f;--fg:#ece6d8;--mute:#9d9483;--line:#332f25;--card:#1f1c14;--accent:#e0a043;--good:#5fbf86;--warn:#e08a52;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 var(--sans);padding-block:24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:760px;margin:auto;display:flex;flex-direction:column;gap:22px;min-width:0}
+section{min-width:0}
+h1{font:600 22px var(--mono);margin:0;color:var(--accent);text-wrap:balance}
+h2{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
+.sub{color:var(--mute);margin:4px 0 0}
+ul{margin:0;padding-left:18px}li{margin:4px 0}
+b{font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.pill{font:600 11px var(--mono);padding:2px 8px;border:1px solid var(--good);color:var(--good)}
+.w{color:var(--warn)}
+.g{color:var(--good)}
+.wrap{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+th{color:var(--mute);font-weight:400}
+footer{font-size:13px}
+</style>
+<main>
+<header>
+<h1>TTA Report · 2026-11-18</h1>
+<p class="sub">Constitution V7 · Wednesday · Morning, Midday (HUM dip trigger) and Closing: no trade · day counter 1</p>
+</header>
+
+<section><h2>Integrity (Closing)</h2>
+<div class="row"><span class="pill">HALT CLEAR</span><span class="pill">BRAKE CLEAR</span><span class="pill">ART.6.1 PASS</span><span class="pill">DAY TRADES 0/3</span></div>
+<ul>
+<li>Buying power equals unleveraged buying power; cash not negative. No open equity, crypto or OCO orders.</li>
+<li><b>Closing value $911.81</b> (+0.80% vs $904.58 yesterday; SPY -0.25%): equities $892.46, cash $19.35 = 2.12% (reserve 2%).</li>
+<li>Peak Closing $968.36 unchanged; drawdown 5.84%; brake level $726.27.</li>
+<li>Since start: account -8.8% vs SPY -4.0%.</li>
+</ul></section>
+
+<section><h2>Market regime</h2>
+<ul>
+<li>Close: SPY $730.58 (-0.25%), QQQ +0.32%, IWM +0.39%, SMH -0.42%. Faded into the close after a flat open.</li>
+<li><b>Managed-care selloff deepened:</b> HUM -12.8%, UNH -10.8%, ELV -7.5%, AGL -24.5%, ALHC -11.9%. No dated cause read yet.</li>
+<li>Software and security rebound held (TENB +17%, QLYS +13%, OKTA +12%, FSLY +11%). Miners weak again (B, KGC, PAAS -5 to -6%).</li>
+<li>BTC $62,446 (-2.9%), ETH $1,748 (-3.0%), SOL $72.90 (-2.6%). No crypto dip threshold met (6% / 8%).</li>
+<li>Scans: daily gainers, daily losers and the quality screen at Morning and Closing; breakout checks on daily bars.</li>
+</ul></section>
+
+<section><h2>Setups (Closing)</h2>
+<div class="wrap"><table>
+<tr><th>Ticker</th><th>Rules</th><th>Evidence</th><th>Result</th></tr>
+<tr><td>BRBR</td><td>10.1 + 10.2</td><td>+24% on FQ4 (EPS miss, driver unread); $13.64 vs the $11.05 20-day high; relative volume 2.2; spread 0.15%</td><td>Best setup; unfunded</td></tr>
+<tr><td>TGT</td><td>10.2</td><td>Q3 EPS $2.65 vs $2.05; faded to $166.57, back under the $167.60 20-day high</td><td>Unfunded; lost 10.1</td></tr>
+<tr><td>HUM</td><td>10.3</td><td>-12.8% vs a 3% threshold; above the $369.13 3-month low; sector-wide, cause unread</td><td>Unfunded</td></tr>
+<tr><td>ACM</td><td>10.2</td><td>FQ4 beat 11/16; $83.21 above the $72.50 pre-event close</td><td>Unfunded</td></tr>
+</table></div>
+</section>
+
+<section><h2>Positions (Closing)</h2>
+<div class="wrap"><table>
+<tr><th>Ticker</th><th>Last</th><th>vs cost</th><th>Target</th><th>Stop (close below)</th><th>Status</th></tr>
+<tr><td>ENR</td><td>$28.48</td><td class="g">+9.6%</td><td>$29.09</td><td>$25.97</td><td>Hold; +10% is $28.57</td></tr>
+<tr><td>HAWK</td><td>$18.54</td><td class="g">+8.0%</td><td>$19.20</td><td>$17.16</td><td>Hold</td></tr>
+<tr><td>MBGL</td><td>$23.99</td><td class="g">+4.7%</td><td>$25.65</td><td>$22.91</td><td class="w">Hold; exit next Morning unless above $24.86</td></tr>
+<tr><td>TSN</td><td>$64.16</td><td class="g">+0.8%</td><td>$70.90</td><td>$61.62</td><td>Hold</td></tr>
+<tr><td>KLAR</td><td>$14.43</td><td class="g">+0.4%</td><td>$16.10</td><td>$13.63</td><td>Hold</td></tr>
+<tr><td>AS</td><td>$30.70</td><td class="w">-1.9%</td><td>$35.03</td><td>$29.10</td><td>Hold</td></tr>
+<tr><td>STN</td><td>$83.73</td><td class="w">-3.1%</td><td>$96.80</td><td>$79.60</td><td>Hold</td></tr>
+<tr><td>HTHT</td><td>$52.69</td><td class="w">-4.3%</td><td>$62.05</td><td>$51.16</td><td class="w">Hold; 2.9% above stop</td></tr>
+</table></div>
+<ul style="margin-top:8px"><li>No target or stop hit; no new +5/+10/+25% level.</li></ul></section>
+
+<section><h2>Cash and exposure</h2>
+<ul>
+<li>Cash 2.12% vs 2% floor. Crypto 0% (cap 25%).</li>
+<li>Art.4: consumer staples (ENR, TSN) about 27%; consumer discretionary (AS, HTHT) about 23%; industrials (STN, HAWK) about 22%; MBGL 13%; KLAR 12%. Eight positions; none above 60%.</li>
+</ul></section>
+
+<section><h2>Decision</h2>
+<ul>
+<li><b>Morning: NO TRADE.</b> Deployable cash about $1.21; every holding still met an entry rule.</li>
+<li><b>Midday: NO TRADE.</b> HUM's dip qualified but was unfunded.</li>
+<li><b>Closing: NO TRADE.</b> Deployable cash about $1.11. MBGL's catalyst window ended today, its last valid day, so it was held; next Morning sells it unless it trades above its $24.86 20-day high.</li>
+<li>Next entry: BRBR above $11.05 with spread at or under 1%, funded by the MBGL exit; then TGT back above $167.60; HUM above $369.13 once the cause is read.</li>
+</ul></section>
+
+<footer class="sub">Personal autonomous experiment; not investment advice. Weekly review due Friday 2026-11-20.</footer>
+</main>
+
+</html>
