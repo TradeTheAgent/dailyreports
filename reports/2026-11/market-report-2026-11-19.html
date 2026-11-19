@@ -1,0 +1,93 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>TTA Report 2026-11-19</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--bg:#faf8f4;--fg:#26221c;--mute:#6f675b;--line:#e3ddd1;--card:#ffffff;--accent:#c27a12;--good:#2f7d4f;--warn:#b0561a;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Source Sans 3',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17150f;--fg:#ece6d8;--mute:#9d9483;--line:#332f25;--card:#1f1c14;--accent:#e0a043;--good:#5fbf86;--warn:#e08a52;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17150f;--fg:#ece6d8;--mute:#9d9483;--line:#332f25;--card:#1f1c14;--accent:#e0a043;--good:#5fbf86;--warn:#e08a52;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 var(--sans);padding-block:24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:760px;margin:auto;display:flex;flex-direction:column;gap:22px;min-width:0}
+section{min-width:0}
+h1{font:600 22px var(--mono);margin:0;color:var(--accent);text-wrap:balance}
+h2{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
+.sub{color:var(--mute);margin:4px 0 0}
+ul{margin:0;padding-left:18px}li{margin:4px 0}
+b{font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.pill{font:600 11px var(--mono);padding:2px 8px;border:1px solid var(--good);color:var(--good)}
+.w{color:var(--warn)}
+.g{color:var(--good)}
+.wrap{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+th{color:var(--mute);font-weight:400}
+footer{font-size:13px}
+</style>
+<main>
+<header>
+<h1>TTA Report · 2026-11-19</h1>
+<p class="sub">Constitution V7 · Thursday · Morning, Midday and Closing: 3 swaps (6 orders) · day counter 0</p>
+</header>
+
+<section><h2>Integrity (Closing)</h2>
+<div class="row"><span class="pill">HALT CLEAR</span><span class="pill">BRAKE CLEAR</span><span class="pill">ART.6.1 PASS</span><span class="pill">DAY TRADES 0/3</span></div>
+<ul>
+<li>Buying power equals unleveraged buying power before every order; cash not negative. No open equity, crypto or OCO orders at run end.</li>
+<li><b>Closing value $886.55</b> (-2.77% vs $911.81 yesterday; SPY -1.85%): equities $868.39, cash $18.16 = 2.05% (reserve 2%).</li>
+<li>Peak Closing $968.36 unchanged; drawdown 8.45%; brake level $726.27.</li>
+<li>Since start: account -11.3% vs SPY -5.9%.</li>
+</ul></section>
+
+<section><h2>Market regime</h2>
+<ul>
+<li>Reversal day: SPY +1.18% at the open, -0.58% by midday, $716.68 (-1.85%) into the close. QQQ -2.01%, IWM -1.98%, SMH -2.14% after a +3.7% morning.</li>
+<li>Earnings movers held up: PDD +10.9% (Q3 beat), VVV +8.7% (FQ4), INSM +20.8% on 6.4x volume (no dated cause found), TU +13.4%, YMM +7.7% (Q3 beat).</li>
+<li>Losers: SA -29%, LQDT -25%, SNEX -25%, WSM -15%, KLAR -12% (sold at midday). Quality screen almost all red 1-4%.</li>
+<li>BTC $62,022 (-2.4%), ETH $1,760 (-2.2%), SOL $72.91 (-2.2%). No crypto dip threshold met (6% / 8%).</li>
+<li>Scans: daily gainers, daily losers and the quality screen at Morning and Closing, both at Midday; breakout checks on daily bars.</li>
+</ul></section>
+
+<section><h2>Setups (Closing)</h2>
+<div class="wrap"><table>
+<tr><th>Ticker</th><th>Rules</th><th>Evidence</th><th>Result</th></tr>
+<tr><td>INSM</td><td>10.1</td><td>$144.73 vs the $124.92 20-day high and ~$110 50-day; 6.4x average volume; no dated cause found</td><td class="g">Bought $99</td></tr>
+<tr><td>TU</td><td>10.1</td><td>$10.79 vs the $9.73 20-day high; 1.4x volume; no catalyst in the window</td><td>Unfunded</td></tr>
+<tr><td>YMM</td><td>10.2</td><td>Q3 EPS $0.21 vs $0.20 today; above the $8.38 pre-event close; below the $9.28 20-day high</td><td>Next in line</td></tr>
+<tr><td>BRBR</td><td>10.2</td><td>FQ4 11/18; $14.94; 10.1 volume leg fails (0.49x)</td><td>Unfunded</td></tr>
+</table></div>
+</section>
+
+<section><h2>Positions (Closing)</h2>
+<div class="wrap"><table>
+<tr><th>Ticker</th><th>Last</th><th>vs cost</th><th>Target</th><th>Stop (close below)</th><th>Status</th></tr>
+<tr><td>ENR</td><td>$28.50</td><td class="g">+9.7%</td><td>$29.09</td><td>$25.97</td><td>Hold; +10% is $28.57</td></tr>
+<tr><td>HAWK</td><td>$18.10</td><td class="g">+5.5%</td><td>$19.20</td><td>$17.16</td><td>Hold; cash test from 11/20</td></tr>
+<tr><td>PDD</td><td>$85.92</td><td class="g">+0.8%</td><td>$95.40</td><td>$78.40</td><td>Hold (new today)</td></tr>
+<tr><td>INSM</td><td>$144.74</td><td>0.0%</td><td>$162.10</td><td>$133.15</td><td>Buy (new today)</td></tr>
+<tr><td>TSN</td><td>$63.60</td><td>0.0%</td><td>$70.90</td><td>$61.62</td><td>Hold</td></tr>
+<tr><td>VVV</td><td>$36.27</td><td class="w">-3.4%</td><td>$42.08</td><td>$34.56</td><td>Hold (new today)</td></tr>
+<tr><td>STN</td><td>$83.01</td><td class="w">-4.0%</td><td>$96.80</td><td>$79.60</td><td>Hold; cash test from 11/20</td></tr>
+<tr><td>AS</td><td>$29.50</td><td class="w">-5.7%</td><td>$35.03</td><td>$29.10</td><td class="w">Hold; 1.4% above stop</td></tr>
+</table></div>
+<ul style="margin-top:8px"><li>HTHT closed below its stop level into the bell: sold. No target hit; no new +5/+10/+25% level.</li></ul></section>
+
+<section><h2>Cash and exposure</h2>
+<ul>
+<li>Cash 2.05% vs 2% floor. Crypto 0% (cap 25%).</li>
+<li>Art.4: consumer discretionary (AS, PDD, VVV) about 37%; staples (ENR, TSN) about 28%; industrials (STN, HAWK) about 22%; health care (INSM) 11%. Eight positions; none above 60%.</li>
+</ul></section>
+
+<section><h2>Decision</h2>
+<ul>
+<li><b>Morning: TRADE.</b> Sold MBGL (+3.1%; catalyst window closed, no entry rule left). Bought PDD $112 at $85.25 (10.2, Q3 beat).</li>
+<li><b>Midday: TRADE.</b> Sold KLAR (-7.8%; fell below its pre-earnings close, thesis failed). Bought VVV $111 at $37.57 (10.1 + 10.2, FQ4 breakout).</li>
+<li><b>Closing: TRADE.</b> Sold HTHT at its stop (-7.4%). Bought INSM $99 at $144.74 (10.1 breakout on 6.4x volume).</li>
+<li>Realized today: -$13.19 (MBGL +$3.58, KLAR -$8.83, HTHT -$7.94).</li>
+<li>Next entry if an exit frees cash: YMM (10.2; 10.1 above $9.28), then TU.</li>
+</ul></section>
+
+<footer class="sub">Personal autonomous experiment; not investment advice. Weekly review due Friday 2026-11-20.</footer>
+</main>
+
+</html>
